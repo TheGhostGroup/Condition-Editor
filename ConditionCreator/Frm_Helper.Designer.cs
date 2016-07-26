@@ -89,19 +89,19 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.buttonArea = new System.Windows.Forms.Button();
-            this.buttonMap = new System.Windows.Forms.Button();
-            this.labelList = new System.Windows.Forms.Label();
-            this.buttonAchievement = new System.Windows.Forms.Button();
-            this.buttonSpell = new System.Windows.Forms.Button();
-            this.buttonUnit = new System.Windows.Forms.Button();
-            this.buttonGameObject = new System.Windows.Forms.Button();
-            this.buttonItem = new System.Windows.Forms.Button();
-            this.buttonQuest = new System.Windows.Forms.Button();
-            this.buttonFaction = new System.Windows.Forms.Button();
-            this.buttonSkill = new System.Windows.Forms.Button();
             this.buttonTitle = new System.Windows.Forms.Button();
+            this.buttonSkill = new System.Windows.Forms.Button();
+            this.buttonFaction = new System.Windows.Forms.Button();
+            this.buttonQuest = new System.Windows.Forms.Button();
+            this.buttonItem = new System.Windows.Forms.Button();
+            this.buttonGameObject = new System.Windows.Forms.Button();
+            this.buttonUnit = new System.Windows.Forms.Button();
+            this.buttonSpell = new System.Windows.Forms.Button();
+            this.buttonAchievement = new System.Windows.Forms.Button();
+            this.labelList = new System.Windows.Forms.Label();
+            this.buttonMap = new System.Windows.Forms.Button();
+            this.buttonArea = new System.Windows.Forms.Button();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
             this.tabControlHelper.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -356,6 +356,7 @@
             // checkBox32
             // 
             this.checkBox32.AutoSize = true;
+            this.checkBox32.Enabled = false;
             this.checkBox32.Location = new System.Drawing.Point(212, 121);
             this.checkBox32.Name = "checkBox32";
             this.checkBox32.Size = new System.Drawing.Size(64, 17);
@@ -367,6 +368,7 @@
             // checkBox31
             // 
             this.checkBox31.AutoSize = true;
+            this.checkBox31.Enabled = false;
             this.checkBox31.Location = new System.Drawing.Point(212, 98);
             this.checkBox31.Name = "checkBox31";
             this.checkBox31.Size = new System.Drawing.Size(118, 17);
@@ -378,6 +380,7 @@
             // checkBox30
             // 
             this.checkBox30.AutoSize = true;
+            this.checkBox30.Enabled = false;
             this.checkBox30.Location = new System.Drawing.Point(212, 75);
             this.checkBox30.Name = "checkBox30";
             this.checkBox30.Size = new System.Drawing.Size(63, 17);
@@ -389,6 +392,7 @@
             // checkBox29
             // 
             this.checkBox29.AutoSize = true;
+            this.checkBox29.Enabled = false;
             this.checkBox29.Location = new System.Drawing.Point(212, 52);
             this.checkBox29.Name = "checkBox29";
             this.checkBox29.Size = new System.Drawing.Size(78, 17);
@@ -400,6 +404,7 @@
             // checkBox28
             // 
             this.checkBox28.AutoSize = true;
+            this.checkBox28.Enabled = false;
             this.checkBox28.Location = new System.Drawing.Point(212, 29);
             this.checkBox28.Name = "checkBox28";
             this.checkBox28.Size = new System.Drawing.Size(62, 17);
@@ -411,6 +416,7 @@
             // checkBox27
             // 
             this.checkBox27.AutoSize = true;
+            this.checkBox27.Enabled = false;
             this.checkBox27.Location = new System.Drawing.Point(106, 190);
             this.checkBox27.Name = "checkBox27";
             this.checkBox27.Size = new System.Drawing.Size(55, 17);
@@ -422,6 +428,7 @@
             // checkBox26
             // 
             this.checkBox26.AutoSize = true;
+            this.checkBox26.Enabled = false;
             this.checkBox26.Location = new System.Drawing.Point(106, 167);
             this.checkBox26.Name = "checkBox26";
             this.checkBox26.Size = new System.Drawing.Size(68, 17);
@@ -433,6 +440,7 @@
             // checkBox25
             // 
             this.checkBox25.AutoSize = true;
+            this.checkBox25.Enabled = false;
             this.checkBox25.Location = new System.Drawing.Point(106, 144);
             this.checkBox25.Name = "checkBox25";
             this.checkBox25.Size = new System.Drawing.Size(60, 17);
@@ -444,6 +452,7 @@
             // checkBox24
             // 
             this.checkBox24.AutoSize = true;
+            this.checkBox24.Enabled = false;
             this.checkBox24.Location = new System.Drawing.Point(106, 121);
             this.checkBox24.Name = "checkBox24";
             this.checkBox24.Size = new System.Drawing.Size(52, 17);
@@ -455,6 +464,7 @@
             // checkBox23
             // 
             this.checkBox23.AutoSize = true;
+            this.checkBox23.Enabled = false;
             this.checkBox23.Location = new System.Drawing.Point(106, 98);
             this.checkBox23.Name = "checkBox23";
             this.checkBox23.Size = new System.Drawing.Size(60, 17);
@@ -815,6 +825,125 @@
             this.tabPage2.Text = "Data Helper";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // buttonTitle
+            // 
+            this.buttonTitle.Location = new System.Drawing.Point(578, 317);
+            this.buttonTitle.Name = "buttonTitle";
+            this.buttonTitle.Size = new System.Drawing.Size(109, 23);
+            this.buttonTitle.TabIndex = 12;
+            this.buttonTitle.Text = "Title List";
+            this.buttonTitle.UseVisualStyleBackColor = true;
+            this.buttonTitle.Click += new System.EventHandler(this.buttonTitle_Click);
+            // 
+            // buttonSkill
+            // 
+            this.buttonSkill.Location = new System.Drawing.Point(578, 288);
+            this.buttonSkill.Name = "buttonSkill";
+            this.buttonSkill.Size = new System.Drawing.Size(109, 23);
+            this.buttonSkill.TabIndex = 11;
+            this.buttonSkill.Text = "Skill List";
+            this.buttonSkill.UseVisualStyleBackColor = true;
+            this.buttonSkill.Click += new System.EventHandler(this.buttonSkill_Click);
+            // 
+            // buttonFaction
+            // 
+            this.buttonFaction.Location = new System.Drawing.Point(578, 259);
+            this.buttonFaction.Name = "buttonFaction";
+            this.buttonFaction.Size = new System.Drawing.Size(109, 23);
+            this.buttonFaction.TabIndex = 10;
+            this.buttonFaction.Text = "Faction List";
+            this.buttonFaction.UseVisualStyleBackColor = true;
+            this.buttonFaction.Click += new System.EventHandler(this.buttonFaction_Click);
+            // 
+            // buttonQuest
+            // 
+            this.buttonQuest.Location = new System.Drawing.Point(578, 230);
+            this.buttonQuest.Name = "buttonQuest";
+            this.buttonQuest.Size = new System.Drawing.Size(109, 23);
+            this.buttonQuest.TabIndex = 9;
+            this.buttonQuest.Text = "Quest List";
+            this.buttonQuest.UseVisualStyleBackColor = true;
+            this.buttonQuest.Click += new System.EventHandler(this.buttonQuest_Click);
+            // 
+            // buttonItem
+            // 
+            this.buttonItem.Location = new System.Drawing.Point(578, 201);
+            this.buttonItem.Name = "buttonItem";
+            this.buttonItem.Size = new System.Drawing.Size(109, 23);
+            this.buttonItem.TabIndex = 8;
+            this.buttonItem.Text = "Item List";
+            this.buttonItem.UseVisualStyleBackColor = true;
+            this.buttonItem.Click += new System.EventHandler(this.buttonItem_Click);
+            // 
+            // buttonGameObject
+            // 
+            this.buttonGameObject.Location = new System.Drawing.Point(578, 172);
+            this.buttonGameObject.Name = "buttonGameObject";
+            this.buttonGameObject.Size = new System.Drawing.Size(109, 23);
+            this.buttonGameObject.TabIndex = 7;
+            this.buttonGameObject.Text = "GameObject List";
+            this.buttonGameObject.UseVisualStyleBackColor = true;
+            this.buttonGameObject.Click += new System.EventHandler(this.buttonGameObject_Click);
+            // 
+            // buttonUnit
+            // 
+            this.buttonUnit.Location = new System.Drawing.Point(578, 143);
+            this.buttonUnit.Name = "buttonUnit";
+            this.buttonUnit.Size = new System.Drawing.Size(109, 23);
+            this.buttonUnit.TabIndex = 6;
+            this.buttonUnit.Text = "Unit List";
+            this.buttonUnit.UseVisualStyleBackColor = true;
+            this.buttonUnit.Click += new System.EventHandler(this.buttonUnit_Click);
+            // 
+            // buttonSpell
+            // 
+            this.buttonSpell.Location = new System.Drawing.Point(578, 114);
+            this.buttonSpell.Name = "buttonSpell";
+            this.buttonSpell.Size = new System.Drawing.Size(109, 23);
+            this.buttonSpell.TabIndex = 5;
+            this.buttonSpell.Text = "Spell List";
+            this.buttonSpell.UseVisualStyleBackColor = true;
+            this.buttonSpell.Click += new System.EventHandler(this.buttonSpell_Click);
+            // 
+            // buttonAchievement
+            // 
+            this.buttonAchievement.Location = new System.Drawing.Point(578, 85);
+            this.buttonAchievement.Name = "buttonAchievement";
+            this.buttonAchievement.Size = new System.Drawing.Size(109, 23);
+            this.buttonAchievement.TabIndex = 4;
+            this.buttonAchievement.Text = "Achievement List";
+            this.buttonAchievement.UseVisualStyleBackColor = true;
+            this.buttonAchievement.Click += new System.EventHandler(this.buttonAchievement_Click);
+            // 
+            // labelList
+            // 
+            this.labelList.AutoSize = true;
+            this.labelList.Location = new System.Drawing.Point(3, 11);
+            this.labelList.Name = "labelList";
+            this.labelList.Size = new System.Drawing.Size(139, 13);
+            this.labelList.TabIndex = 3;
+            this.labelList.Text = "Click a button to show Id list";
+            // 
+            // buttonMap
+            // 
+            this.buttonMap.Location = new System.Drawing.Point(578, 56);
+            this.buttonMap.Name = "buttonMap";
+            this.buttonMap.Size = new System.Drawing.Size(109, 23);
+            this.buttonMap.TabIndex = 2;
+            this.buttonMap.Text = "Map List";
+            this.buttonMap.UseVisualStyleBackColor = true;
+            this.buttonMap.Click += new System.EventHandler(this.buttonMap_Click);
+            // 
+            // buttonArea
+            // 
+            this.buttonArea.Location = new System.Drawing.Point(578, 27);
+            this.buttonArea.Name = "buttonArea";
+            this.buttonArea.Size = new System.Drawing.Size(109, 23);
+            this.buttonArea.TabIndex = 1;
+            this.buttonArea.Text = "Area List";
+            this.buttonArea.UseVisualStyleBackColor = true;
+            this.buttonArea.Click += new System.EventHandler(this.buttonArea_Click);
+            // 
             // dataGridView
             // 
             this.dataGridView.AllowUserToAddRows = false;
@@ -832,125 +961,6 @@
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView.Size = new System.Drawing.Size(569, 435);
             this.dataGridView.TabIndex = 0;
-            // 
-            // buttonArea
-            // 
-            this.buttonArea.Location = new System.Drawing.Point(578, 27);
-            this.buttonArea.Name = "buttonArea";
-            this.buttonArea.Size = new System.Drawing.Size(109, 23);
-            this.buttonArea.TabIndex = 1;
-            this.buttonArea.Text = "Area List";
-            this.buttonArea.UseVisualStyleBackColor = true;
-            this.buttonArea.Click += new System.EventHandler(this.buttonArea_Click);
-            // 
-            // buttonMap
-            // 
-            this.buttonMap.Location = new System.Drawing.Point(578, 56);
-            this.buttonMap.Name = "buttonMap";
-            this.buttonMap.Size = new System.Drawing.Size(109, 23);
-            this.buttonMap.TabIndex = 2;
-            this.buttonMap.Text = "Map List";
-            this.buttonMap.UseVisualStyleBackColor = true;
-            this.buttonMap.Click += new System.EventHandler(this.buttonMap_Click);
-            // 
-            // labelList
-            // 
-            this.labelList.AutoSize = true;
-            this.labelList.Location = new System.Drawing.Point(3, 11);
-            this.labelList.Name = "labelList";
-            this.labelList.Size = new System.Drawing.Size(139, 13);
-            this.labelList.TabIndex = 3;
-            this.labelList.Text = "Click a button to show Id list";
-            // 
-            // buttonAchievement
-            // 
-            this.buttonAchievement.Location = new System.Drawing.Point(578, 85);
-            this.buttonAchievement.Name = "buttonAchievement";
-            this.buttonAchievement.Size = new System.Drawing.Size(109, 23);
-            this.buttonAchievement.TabIndex = 4;
-            this.buttonAchievement.Text = "Achievement List";
-            this.buttonAchievement.UseVisualStyleBackColor = true;
-            this.buttonAchievement.Click += new System.EventHandler(this.buttonAchievement_Click);
-            // 
-            // buttonSpell
-            // 
-            this.buttonSpell.Location = new System.Drawing.Point(578, 114);
-            this.buttonSpell.Name = "buttonSpell";
-            this.buttonSpell.Size = new System.Drawing.Size(109, 23);
-            this.buttonSpell.TabIndex = 5;
-            this.buttonSpell.Text = "Spell List";
-            this.buttonSpell.UseVisualStyleBackColor = true;
-            this.buttonSpell.Click += new System.EventHandler(this.buttonSpell_Click);
-            // 
-            // buttonUnit
-            // 
-            this.buttonUnit.Location = new System.Drawing.Point(578, 143);
-            this.buttonUnit.Name = "buttonUnit";
-            this.buttonUnit.Size = new System.Drawing.Size(109, 23);
-            this.buttonUnit.TabIndex = 6;
-            this.buttonUnit.Text = "Unit List";
-            this.buttonUnit.UseVisualStyleBackColor = true;
-            this.buttonUnit.Click += new System.EventHandler(this.buttonUnit_Click);
-            // 
-            // buttonGameObject
-            // 
-            this.buttonGameObject.Location = new System.Drawing.Point(578, 172);
-            this.buttonGameObject.Name = "buttonGameObject";
-            this.buttonGameObject.Size = new System.Drawing.Size(109, 23);
-            this.buttonGameObject.TabIndex = 7;
-            this.buttonGameObject.Text = "GameObject List";
-            this.buttonGameObject.UseVisualStyleBackColor = true;
-            this.buttonGameObject.Click += new System.EventHandler(this.buttonGameObject_Click);
-            // 
-            // buttonItem
-            // 
-            this.buttonItem.Location = new System.Drawing.Point(578, 201);
-            this.buttonItem.Name = "buttonItem";
-            this.buttonItem.Size = new System.Drawing.Size(109, 23);
-            this.buttonItem.TabIndex = 8;
-            this.buttonItem.Text = "Item List";
-            this.buttonItem.UseVisualStyleBackColor = true;
-            this.buttonItem.Click += new System.EventHandler(this.buttonItem_Click);
-            // 
-            // buttonQuest
-            // 
-            this.buttonQuest.Location = new System.Drawing.Point(578, 230);
-            this.buttonQuest.Name = "buttonQuest";
-            this.buttonQuest.Size = new System.Drawing.Size(109, 23);
-            this.buttonQuest.TabIndex = 9;
-            this.buttonQuest.Text = "Quest List";
-            this.buttonQuest.UseVisualStyleBackColor = true;
-            this.buttonQuest.Click += new System.EventHandler(this.buttonQuest_Click);
-            // 
-            // buttonFaction
-            // 
-            this.buttonFaction.Location = new System.Drawing.Point(578, 259);
-            this.buttonFaction.Name = "buttonFaction";
-            this.buttonFaction.Size = new System.Drawing.Size(109, 23);
-            this.buttonFaction.TabIndex = 10;
-            this.buttonFaction.Text = "Faction List";
-            this.buttonFaction.UseVisualStyleBackColor = true;
-            this.buttonFaction.Click += new System.EventHandler(this.buttonFaction_Click);
-            // 
-            // buttonSkill
-            // 
-            this.buttonSkill.Location = new System.Drawing.Point(578, 288);
-            this.buttonSkill.Name = "buttonSkill";
-            this.buttonSkill.Size = new System.Drawing.Size(109, 23);
-            this.buttonSkill.TabIndex = 11;
-            this.buttonSkill.Text = "Skill List";
-            this.buttonSkill.UseVisualStyleBackColor = true;
-            this.buttonSkill.Click += new System.EventHandler(this.buttonSkill_Click);
-            // 
-            // buttonTitle
-            // 
-            this.buttonTitle.Location = new System.Drawing.Point(578, 317);
-            this.buttonTitle.Name = "buttonTitle";
-            this.buttonTitle.Size = new System.Drawing.Size(109, 23);
-            this.buttonTitle.TabIndex = 12;
-            this.buttonTitle.Text = "Title List";
-            this.buttonTitle.UseVisualStyleBackColor = true;
-            this.buttonTitle.Click += new System.EventHandler(this.buttonTitle_Click);
             // 
             // FormConditionHelper
             // 

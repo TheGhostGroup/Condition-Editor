@@ -93,7 +93,7 @@
             this.buttonClearList = new System.Windows.Forms.Button();
             this.buttonRetrieveFromList = new System.Windows.Forms.Button();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonDown = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
             this.menuStripSourceCondition.SuspendLayout();
             this.groupBoxConditionType.SuspendLayout();
@@ -212,10 +212,10 @@
             "Reaction to",
             "Distance to",
             "Alive",
-            "Healh point value",
+            "Health point value",
             "Health point percentage",
-            "Realm Achievement",
-            "In Water",
+            "Realm achievement",
+            "In water",
             "Stand state"});
             this.toolStripComboBoxCondition.Name = "toolStripComboBoxCondition";
             this.toolStripComboBoxCondition.Size = new System.Drawing.Size(200, 23);
@@ -805,16 +805,16 @@
             this.buttonRetrieveFromList.UseVisualStyleBackColor = true;
             this.buttonRetrieveFromList.Click += new System.EventHandler(this.buttonRetrieveFromList_Click);
             //
-            // button2
+            // buttonDown
             //
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Image = global::ConditionCreator.Properties.Resources.down;
-            this.button2.Location = new System.Drawing.Point(997, 277);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(45, 47);
-            this.button2.TabIndex = 1;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonDown.Image = global::ConditionCreator.Properties.Resources.down;
+            this.buttonDown.Location = new System.Drawing.Point(997, 277);
+            this.buttonDown.Name = "buttonDown";
+            this.buttonDown.Size = new System.Drawing.Size(45, 47);
+            this.buttonDown.TabIndex = 1;
+            this.buttonDown.UseVisualStyleBackColor = true;
+            this.buttonDown.Click += new System.EventHandler(this.buttonDown_Click);
             //
             // buttonUp
             //
@@ -832,7 +832,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1054, 547);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.buttonDown);
             this.Controls.Add(this.buttonRetrieveFromList);
             this.Controls.Add(this.buttonUp);
             this.Controls.Add(this.buttonClearList);
@@ -943,7 +943,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ScriptName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Comment;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonDown;
         private System.Windows.Forms.Button buttonUp;
     }
 }

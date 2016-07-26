@@ -1138,13 +1138,13 @@ namespace ConditionCreator
                     comboBoxConditionValue2.Items.Add(4);
                     comboBoxConditionValue2.SelectedItem = 0;
                     break;
-                case "Realm Acievement":
+                case "Realm achievement":
                     labelConditionValue1.Text = "Achievement Id";
                     labelConditionValue2.Text = "";
                     labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     break;
-                case "In Water":
+                case "In water":
                     labelConditionValue1.Text = "Set NegativeCondition Value";
                     labelConditionValue2.Text = "";
                     labelConditionValue3.Text = "";
@@ -2033,7 +2033,7 @@ namespace ConditionCreator
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "dead.";
                     ConditionComment = "target is " + NegativeCondition;
                     break;
-                case "Health points Value":
+                case "Health point value":
                     switch (comboBoxConditionValue2.Text)
                     {
                         case "0":
@@ -2056,7 +2056,7 @@ namespace ConditionCreator
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
                     ConditionComment = "target health value must " + NegativeCondition + "be " + target + " " + comboBoxConditionValue1.Text + ".";
                     break;
-                case "Health points percentage":
+                case "Health point percentage":
                     switch (comboBoxConditionValue2.Text)
                     {
                         case "0":
@@ -2079,7 +2079,7 @@ namespace ConditionCreator
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
                     ConditionComment = "target health percentage must " + NegativeCondition + "be " + target + " " + comboBoxConditionValue1.Text + "% of max Health.";
                     break;
-                case "Realm Achievement":
+                case "Realm achievement":
                     // *** TO DO ***
 
                     break;
@@ -2187,7 +2187,7 @@ namespace ConditionCreator
             // Move selected condtion up in table. TODO
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonDown_Click(object sender, EventArgs e)
         {
             // Move selected condtion down in table. TODO
         }
