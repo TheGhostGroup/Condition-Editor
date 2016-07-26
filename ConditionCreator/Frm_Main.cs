@@ -14,8 +14,8 @@ using System.Data.SQLite;
 
 namespace ConditionCreator
 {
-	public partial class FormCreator : Form
-	{
+    public partial class FormCreator : Form
+    {
         bool updateFields           = true;
         int sourceValue             = 0;
         int conditionValue          = 0;
@@ -30,11 +30,11 @@ namespace ConditionCreator
         string[] ConditionValue3Tip = new string[42];
 
         public FormCreator()
-		{
-			InitializeComponent();
+        {
+            InitializeComponent();
             // Initial setup of controls
-            toolStripComboBoxSource.Text="NONE";
-            toolStripComboBoxCondition.Text = "NONE";
+            toolStripComboBoxSource.Text="None";
+            toolStripComboBoxCondition.Text = "None";
             comboBoxConditionTarget.Text = "0";
             labelTarget.Text = "";
             tiptext();
@@ -180,7 +180,7 @@ namespace ConditionCreator
             sourceEntryTip[25] = "Map id used in terrain swap";
             sourceIdTip[25] = "";
             conditionTargetTip[25] = "";
-            // PHASE		
+            // PHASE
             sourceGroupTip[26] = "Phase id used in phase change.";
             sourceEntryTip[26] = "Area id used in phase change.";
             sourceIdTip[26] = "";
@@ -378,9 +378,9 @@ namespace ConditionCreator
         }
 
         private void FormCreator_FormClosing(object sender, FormClosingEventArgs e)
-		{
+        {
             System.Environment.Exit(1);
-		}
+        }
 
         private void buttonResetAll_Click(object sender, EventArgs e)
         {
@@ -390,8 +390,8 @@ namespace ConditionCreator
                 reset_source();
                 reset_condition();
                 // Reset Comboboxes
-                toolStripComboBoxSource.Text = "NONE";
-                toolStripComboBoxCondition.Text = "NONE";
+                toolStripComboBoxSource.Text = "None";
+                toolStripComboBoxCondition.Text = "None";
                 // Reset all Others
                 textBoxElseGroup.Text = "0";
                 checkBoxNegativeCondition.Checked = false;
@@ -449,7 +449,7 @@ namespace ConditionCreator
                 textBoxSourceId.Text = row.Cells[3].Value.ToString();
                 textBoxElseGroup.Text = row.Cells[4].Value.ToString();
                 int condition = Convert.ToInt32(row.Cells[5].Value);
-                if (condition > 23) ++condition; // 24 is unused so selectedindex will be off after item 23.
+                if (condition > 23) --condition; // 24 is unused so selectedindex will be off after item 23.
                 toolStripComboBoxCondition.SelectedIndex = condition;
                 comboBoxConditionTarget.Text = row.Cells[6].Value.ToString();
                 comboBoxConditionValue1.Text = row.Cells[7].Value.ToString();
@@ -634,7 +634,7 @@ namespace ConditionCreator
         }
 
         private void toolStripComboBoxSource_SelectedIndexChanged(object sender, EventArgs e)
-		{
+        {
             // Reset source data labels and fields
             reset_source();
 
@@ -646,116 +646,116 @@ namespace ConditionCreator
 
             // Set source data labels and fields
             switch (toolStripComboBoxSource.Text)
-			{
-				case "CREATURE LOOT TEMPLATE":
-				case "DISENCHANT LOOT TEMPLATE":
-				case "FISHING LOOT TEMPLATE":
-				case "GAMEOBJECT LOOT TEMPLATE":
-				case "ITEM LOOT TEMPLATE":
-				case "MAIL LOOT TEMPLATE":
-				case "MILLING LOOT TEMPLATE":
-				case "PICKPOCKETING LOOT TEMPLATE":
-				case "PROSPECTING LOOT TEMPLATE":
-				case "REFERENCE LOOT TEMPLATE":
-				case "SKINNING LOOT TEMPLATE":
-				case "SPELL LOOT TEMPLATE":
-					labelSourceGroup.Text = "Loot Entry";
-					labelSourceEntry.Text = "Item Id";
-					labelSourceId.Text    = "";
+            {
+                case "Creature loot template":
+                case "Disenchant loot template":
+                case "Fishing loot template":
+                case "Gameobject loot template":
+                case "Item loot template":
+                case "Mail loot template":
+                case "Milling loot template":
+                case "Pickpocketing loot template":
+                case "Prospecting loot template":
+                case "Reference loot template":
+                case "Skinning loot template":
+                case "Spell loot template":
+                    labelSourceGroup.Text = "Loot Entry";
+                    labelSourceEntry.Text = "Item Id";
+                    labelSourceId.Text    = "";
                     labelTarget.Text      = "";
                     textBoxSourceGroup.Enabled = true;
                     textBoxSourceEntry.Enabled = true;
                     break;
-				case "SPELL IMPLICIT TARGET":
-					textBoxSourceGroup.Text = "1";
-					labelSourceGroup.Text = "Spell Effect Mask";
-					labelSourceEntry.Text = "Spell";
-					labelSourceId.Text    = "";
+                case "Spell implicit target":
+                    textBoxSourceGroup.Text = "1";
+                    labelSourceGroup.Text = "Spell Effect Mask";
+                    labelSourceEntry.Text = "Spell";
+                    labelSourceId.Text    = "";
                     labelTarget.Text      = "Condition Target";
                     textBoxSourceGroup.Enabled = true;
                     textBoxSourceEntry.Enabled = true;
                     comboBoxConditionTarget.Enabled = true;
                     comboBoxConditionTarget.Visible = true;
                     break;
-                case "GOSSIP MENU":
-					labelSourceGroup.Text = "Gossip Menu Entry";
-					labelSourceEntry.Text = "Gossip Menu Text Id";
-					labelSourceId.Text    = "";
+                case "Gossip menu":
+                    labelSourceGroup.Text = "Gossip Menu Entry";
+                    labelSourceEntry.Text = "Gossip Menu Text Id";
+                    labelSourceId.Text    = "";
                     labelTarget.Text      = "Condition Target";
                     textBoxSourceGroup.Enabled = true;
                     textBoxSourceEntry.Enabled = true;
                     comboBoxConditionTarget.Enabled = true;
                     comboBoxConditionTarget.Visible = true;
                     break;
-				case "GOSSIP MENU OPTION":
-					labelSourceGroup.Text = "Gossip Menu Entry";
-					labelSourceEntry.Text = "Gossip Menu Option Id";
-					labelSourceId.Text    = "";
+                case "Gossip menu option":
+                    labelSourceGroup.Text = "Gossip Menu Entry";
+                    labelSourceEntry.Text = "Gossip Menu Option Id";
+                    labelSourceId.Text    = "";
                     labelTarget.Text      = "Condition Target";
                     textBoxSourceGroup.Enabled = true;
                     textBoxSourceEntry.Enabled = true;
                     comboBoxConditionTarget.Enabled = true;
                     comboBoxConditionTarget.Visible = true;
                     break;
-				case "CREATURE TEMPLATE VEHICLE":
-					labelSourceGroup.Text = "";
-					labelSourceEntry.Text = "Creature Entry";
-					labelSourceId.Text = "";
+                case "Creature template vehicle":
+                    labelSourceGroup.Text = "";
+                    labelSourceEntry.Text = "Creature Entry";
+                    labelSourceId.Text = "";
                     labelTarget.Text   = "Condition Target";
                     textBoxSourceEntry.Enabled = true;
                     comboBoxConditionTarget.Enabled = true;
                     comboBoxConditionTarget.Visible = true;
                     break;
-				case "SPELL":
-					labelSourceGroup.Text = "";
-					labelSourceEntry.Text = "Spell Entry";
-					labelSourceId.Text    = "";
+                case "Spell":
+                    labelSourceGroup.Text = "";
+                    labelSourceEntry.Text = "Spell Entry";
+                    labelSourceId.Text    = "";
                     labelTarget.Text      = "Condition Target";
                     textBoxSourceEntry.Enabled = true;
                     comboBoxConditionTarget.Enabled = true;
                     comboBoxConditionTarget.Visible = true;
                     textBoxErrorType.Enabled   = true;
-					textBoxErrorTextId.Enabled = true;
+                    textBoxErrorTextId.Enabled = true;
                     break;
-				case "SPELL CLICK EVENT":
-					labelSourceGroup.Text = "Creature Entry";
-					labelSourceEntry.Text = "Spell Entry";
-					labelSourceId.Text    = "";
+                case "Spell click event":
+                    labelSourceGroup.Text = "Creature Entry";
+                    labelSourceEntry.Text = "Spell Entry";
+                    labelSourceId.Text    = "";
                     labelTarget.Text      = "Condition Target";
                     textBoxSourceGroup.Enabled = true;
                     textBoxSourceEntry.Enabled = true;
                     comboBoxConditionTarget.Enabled = true;
                     comboBoxConditionTarget.Visible = true;
                     break;
-				case "QUEST ACCEPT":
-					labelSourceGroup.Text = "";
-					labelSourceEntry.Text = "Quest Id";
-					labelSourceId.Text    = "";
+                case "Quest accept":
+                    labelSourceGroup.Text = "";
+                    labelSourceEntry.Text = "Quest Id";
+                    labelSourceId.Text    = "";
                     labelTarget.Text      = "";
                     textBoxSourceEntry.Enabled = true;
                     break;
-				case "QUEST SHOW MARK":
-					labelSourceGroup.Text = "";
-					labelSourceEntry.Text = "Quest Id";
-					labelSourceId.Text    = "";
+                case "Quest show mark":
+                    labelSourceGroup.Text = "";
+                    labelSourceEntry.Text = "Quest Id";
+                    labelSourceId.Text    = "";
                     labelTarget.Text      = "";
                     textBoxSourceEntry.Enabled = true;
                     break;
-				case "VEHICLE SPELL":
-					labelSourceGroup.Text = "Creature Entry";
-					labelSourceEntry.Text = "Spell Entry";
-					labelSourceId.Text    = "";
+                case "Vehicle spell":
+                    labelSourceGroup.Text = "Creature Entry";
+                    labelSourceEntry.Text = "Spell Entry";
+                    labelSourceId.Text    = "";
                     labelTarget.Text      = "Condition Target";
                     textBoxSourceGroup.Enabled = true;
                     textBoxSourceEntry.Enabled = true;
                     comboBoxConditionTarget.Enabled = true;
                     comboBoxConditionTarget.Visible = true;
                     break;
-				case "SMART EVENT":
+                case "Smart event":
                     textBoxSourceGroup.Text = "1";
                     labelSourceGroup.Text = "Smartscript Id + 1";
-					labelSourceEntry.Text = "Smartscript EntryOrGuid";
-					labelSourceId.Text    = "Smartscript Source Type";
+                    labelSourceEntry.Text = "Smartscript EntryOrGuid";
+                    labelSourceId.Text    = "Smartscript Source Type";
                     labelTarget.Text      = "Condition Target";
                     textBoxSourceGroup.Enabled = true;
                     textBoxSourceEntry.Enabled = true;
@@ -763,51 +763,51 @@ namespace ConditionCreator
                     comboBoxConditionTarget.Enabled = true;
                     comboBoxConditionTarget.Visible = true;
                     break;
-				case "NPC VENDOR":
-					labelSourceGroup.Text = "Vendor Entry";
-					labelSourceEntry.Text = "Item Entry";
-					labelSourceId.Text    = "";
+                case "NPC vendor":
+                    labelSourceGroup.Text = "Vendor Entry";
+                    labelSourceEntry.Text = "Item Entry";
+                    labelSourceId.Text    = "";
                     labelTarget.Text      = "";
                     textBoxSourceGroup.Enabled = true;
                     textBoxSourceEntry.Enabled = true;
                     break;
-				case "SPELL PROC":
-					labelSourceGroup.Text = "";
-					labelSourceEntry.Text = "Spell Entry";
-					labelSourceId.Text    = "";
+                case "Spell proc":
+                    labelSourceGroup.Text = "";
+                    labelSourceEntry.Text = "Spell Entry";
+                    labelSourceId.Text    = "";
                     labelTarget.Text      = "Condition Target";
                     textBoxSourceEntry.Enabled = true;
                     comboBoxConditionTarget.Enabled = true;
                     comboBoxConditionTarget.Visible = true;
                     break;
-				case "TERRAIN SWAP":
-					labelSourceGroup.Text = "";
-					labelSourceEntry.Text = "Map Id";
-					labelSourceId.Text    = "";
+                case "Terrain swap":
+                    labelSourceGroup.Text = "";
+                    labelSourceEntry.Text = "Map Id";
+                    labelSourceId.Text    = "";
                     labelTarget.Text      = "";
                     textBoxSourceEntry.Enabled = true;
                     break;
-				case "PHASE":
-					labelSourceGroup.Text = "Phase Id";
-					labelSourceEntry.Text = "Area Id";
-					labelSourceId.Text    = "";
+                case "Phase":
+                    labelSourceGroup.Text = "Phase Id";
+                    labelSourceEntry.Text = "Area Id";
+                    labelSourceId.Text    = "";
                     labelTarget.Text      = "";
                     textBoxSourceGroup.Enabled = true;
                     textBoxSourceEntry.Enabled = true;
                     break;
-				default:
+                default:
                     sourceValue = 0;
-					labelSourceGroup.Text = "SourceGroup";
-					labelSourceEntry.Text = "SourceEntry";
-					labelSourceId.Text    = "SourceId";
+                    labelSourceGroup.Text = "SourceGroup";
+                    labelSourceEntry.Text = "SourceEntry";
+                    labelSourceId.Text    = "SourceId";
                     labelTarget.Text      = "Condition Target";
                     break;
-			}
+            }
             updateComment();
         }
 
-		private void toolStripComboBoxCondition_SelectedIndexChanged(object sender, EventArgs e)
-		{
+        private void toolStripComboBoxCondition_SelectedIndexChanged(object sender, EventArgs e)
+        {
             // Reset condition data labels and fields
             reset_condition();
 
@@ -818,11 +818,11 @@ namespace ConditionCreator
 
             // Set condition data labels and fields
             switch (toolStripComboBoxCondition.Text)
-			{
-				case "AURA":
-					labelConditionValue1.Text = "Spell";
-					labelConditionValue2.Text = "Effect Index";
-					labelConditionValue3.Text = "";
+            {
+                case "Aura":
+                    labelConditionValue1.Text = "Spell";
+                    labelConditionValue2.Text = "Effect Index";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     comboBoxConditionValue2.Enabled = true;
                     comboBoxConditionValue2.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -832,10 +832,10 @@ namespace ConditionCreator
                     comboBoxConditionValue2.Items.Add(4);
                     comboBoxConditionValue2.Text = "1";
                     break;
-				case "ITEM":
-					labelConditionValue1.Text = "Item Entry";
-					labelConditionValue2.Text = "Item Count";
-					labelConditionValue3.Text = "In Bank";
+                case "Item":
+                    labelConditionValue1.Text = "Item Entry";
+                    labelConditionValue2.Text = "Item Count";
+                    labelConditionValue3.Text = "In Bank";
                     comboBoxConditionValue1.Enabled = true;
                     comboBoxConditionValue2.Enabled = true;
                     comboBoxConditionValue3.Enabled = true;
@@ -845,58 +845,58 @@ namespace ConditionCreator
                     comboBoxConditionValue3.Items.Add(1);
                     comboBoxConditionValue3.SelectedItem = 0;
                     break;
-				case "ITEM EQUIPPED":
-					labelConditionValue1.Text = "Item Entry";
-					labelConditionValue2.Text = "";
-					labelConditionValue3.Text = "";
+                case "Item equipped":
+                    labelConditionValue1.Text = "Item Entry";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     break;
-				case "ZONE ID":
-					labelConditionValue1.Text = "Zone Id";
-					labelConditionValue2.Text = "";
-					labelConditionValue3.Text = "";
+                case "Zone id":
+                    labelConditionValue1.Text = "Zone Id";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     break;
-				case "REPUTATION RANK":
-					labelConditionValue1.Text = "Faction Template Id";
-					labelConditionValue2.Text = "Rank";
-					labelConditionValue3.Text = "";
+                case "Reputation rank":
+                    labelConditionValue1.Text = "Faction Template Id";
+                    labelConditionValue2.Text = "Rank";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     comboBoxConditionValue2.Enabled = true;
                     break;
-				case "TEAM":
-					labelConditionValue1.Text = "Team Id";
-					labelConditionValue2.Text = "";
-					labelConditionValue3.Text = "";
+                case "Team":
+                    labelConditionValue1.Text = "Team Id";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     comboBoxConditionValue1.DropDownStyle = ComboBoxStyle.DropDownList;
                     comboBoxConditionValue1.Items.Add(67);
                     comboBoxConditionValue1.Items.Add(469);
                     comboBoxConditionValue1.SelectedItem = 67;
                     break;
-				case "SKILL":
-					labelConditionValue1.Text = "Skill Required";
-					labelConditionValue2.Text = "Skill Value";
-					labelConditionValue3.Text = "";
+                case "Skill":
+                    labelConditionValue1.Text = "Skill Required";
+                    labelConditionValue2.Text = "Skill Value";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     comboBoxConditionValue2.Enabled = true;
                     break;
-				case "QUEST REWARDED":
-					labelConditionValue1.Text = "Quest Id";
-					labelConditionValue2.Text = "";
-					labelConditionValue3.Text = "";
+                case "Quest rewarded":
+                    labelConditionValue1.Text = "Quest Id";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     break;
-				case "QUEST TAKEN":
-					labelConditionValue1.Text = "Quest Id";
-					labelConditionValue2.Text = "";
-					labelConditionValue3.Text = "";
+                case "Quest taken":
+                    labelConditionValue1.Text = "Quest Id";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     break;
-				case "DRUNKEN STATE":
-					labelConditionValue1.Text = "Drunken State";
-					labelConditionValue2.Text = "";
-					labelConditionValue3.Text = "";
+                case "Drunken state":
+                    labelConditionValue1.Text = "Drunken State";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     comboBoxConditionValue1.DropDownStyle = ComboBoxStyle.DropDownList;
                     comboBoxConditionValue1.Items.Add(0);
@@ -905,23 +905,23 @@ namespace ConditionCreator
                     comboBoxConditionValue1.Items.Add(3);
                     comboBoxConditionValue1.SelectedItem = 0;
                     break;
-				case "WORLD STATE":
-					labelConditionValue1.Text = "World State Index";
-					labelConditionValue2.Text = "World State Value";
-					labelConditionValue3.Text = "";
+                case "World state":
+                    labelConditionValue1.Text = "World State Index";
+                    labelConditionValue2.Text = "World State Value";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     comboBoxConditionValue2.Enabled = true;
                     break;
-				case "ACTIVE EVENT":
-					labelConditionValue1.Text = "Event Entry";
-					labelConditionValue2.Text = "";
-					labelConditionValue3.Text = "";
+                case "Active world event":
+                    labelConditionValue1.Text = "Event Entry";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     break;
-				case "INSTANCE INFO":
-					labelConditionValue1.Text = "Event Entry";
-					labelConditionValue2.Text = "Data";
-					labelConditionValue3.Text = "Type";
+                case "Instance info":
+                    labelConditionValue1.Text = "Event Entry";
+                    labelConditionValue2.Text = "Data";
+                    labelConditionValue3.Text = "Type";
                     comboBoxConditionValue1.Enabled = true;
                     comboBoxConditionValue2.Enabled = true;
                     comboBoxConditionValue3.Enabled = true;
@@ -931,46 +931,46 @@ namespace ConditionCreator
                     comboBoxConditionValue3.Items.Add(2);
                     comboBoxConditionValue3.SelectedItem = 0;
                     break;
-				case "QUEST NONE":
-					labelConditionValue1.Text = "Quest Id";
-					labelConditionValue2.Text = "";
-					labelConditionValue3.Text = "";
+                case "Quest not taken":
+                    labelConditionValue1.Text = "Quest Id";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     break;
-				case "CLASS":
-					labelConditionValue1.Text = "Class flag Mask";
-					labelConditionValue2.Text = "";
-					labelConditionValue3.Text = "";
+                case "Class":
+                    labelConditionValue1.Text = "Class flag Mask";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     break;
-				case "RACE":
-					labelConditionValue1.Text = "Race flag Mask";
-					labelConditionValue2.Text = "";
-					labelConditionValue3.Text = "";
+                case "Race":
+                    labelConditionValue1.Text = "Race flag Mask";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     break;
-				case "ACHIEVEMENT":
-					labelConditionValue1.Text = "Achievement Id";
-					labelConditionValue2.Text = "";
-					labelConditionValue3.Text = "";
+                case "Achievement":
+                    labelConditionValue1.Text = "Achievement Id";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     break;
-				case "TITLE":
-					labelConditionValue1.Text = "Title Id";
-					labelConditionValue2.Text = "";
-					labelConditionValue3.Text = "";
+                case "Title":
+                    labelConditionValue1.Text = "Title Id";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     break;
-				case "SPAWN MASK":
-					labelConditionValue1.Text = "SpawnMask";
-					labelConditionValue2.Text = "";
-					labelConditionValue3.Text = "";
+                case "Spawn mask":
+                    labelConditionValue1.Text = "SpawnMask";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     break;
-				case "GENDER":
-					labelConditionValue1.Text = "Gender";
-					labelConditionValue2.Text = "";
-					labelConditionValue3.Text = "";
+                case "Gender":
+                    labelConditionValue1.Text = "Gender";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     comboBoxConditionValue1.DropDownStyle = ComboBoxStyle.DropDownList;
                     comboBoxConditionValue1.Items.Add(0);
@@ -978,40 +978,40 @@ namespace ConditionCreator
                     comboBoxConditionValue1.Items.Add(2);
                     comboBoxConditionValue1.SelectedItem = 0;
                     break;
-				case "UNIT STATE":
-					labelConditionValue1.Text = "Unit State";
-					labelConditionValue2.Text = "";
-					labelConditionValue3.Text = "";
+                case "Unit state":
+                    labelConditionValue1.Text = "Unit State";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     break;
-				case "MAP ID":
-					labelConditionValue1.Text = "Map Id";
-					labelConditionValue2.Text = "";
-					labelConditionValue3.Text = "";
+                case "Map id":
+                    labelConditionValue1.Text = "Map Id";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     break;
-				case "AREA ID":
-					labelConditionValue1.Text = "Area Id";
-					labelConditionValue2.Text = "";
-					labelConditionValue3.Text = "";
+                case "Area id":
+                    labelConditionValue1.Text = "Area Id";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     break;
-				case "SPELL":
-					labelConditionValue1.Text = "Spell Id";
-					labelConditionValue2.Text = "";
-					labelConditionValue3.Text = "";
+                case "Spell":
+                    labelConditionValue1.Text = "Spell Id";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     break;
-				case "PHASEMASK":
-					labelConditionValue1.Text = "Phasemask";
-					labelConditionValue2.Text = "";
-					labelConditionValue3.Text = "";
+                case "Phase mask":
+                    labelConditionValue1.Text = "Phasemask";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     break;
-				case "LEVEL":
-					labelConditionValue1.Text = "Level";
-					labelConditionValue2.Text = "Optional";
-					labelConditionValue3.Text = "";
+                case "Level":
+                    labelConditionValue1.Text = "Level";
+                    labelConditionValue2.Text = "Optional";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     comboBoxConditionValue2.Enabled = true;
                     comboBoxConditionValue2.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -1022,30 +1022,30 @@ namespace ConditionCreator
                     comboBoxConditionValue2.Items.Add(4);
                     comboBoxConditionValue2.SelectedItem = 0;
                     break;
-				case "QUEST COMPLETE":
-					labelConditionValue1.Text = "Quest Id";
-					labelConditionValue2.Text = "";
-					labelConditionValue3.Text = "";
+                case "Quest complete":
+                    labelConditionValue1.Text = "Quest Id";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     break;
-				case "NEAR CREATURE":
-					labelConditionValue1.Text = "Creature Entry";
-					labelConditionValue2.Text = "Distance";
-					labelConditionValue3.Text = "";
-                    comboBoxConditionValue1.Enabled = true;
-                    comboBoxConditionValue2.Enabled = true;
-                    break;
-				case "NEAR GAMEOBJECT":
-					labelConditionValue1.Text = "Gameobject Entry";
-					labelConditionValue2.Text = "Distance";
-					labelConditionValue3.Text = "";
+                case "Near creature":
+                    labelConditionValue1.Text = "Creature Entry";
+                    labelConditionValue2.Text = "Distance";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     comboBoxConditionValue2.Enabled = true;
                     break;
-				case "OBJECT ENTRY GUID":
-					labelConditionValue1.Text = "Type Id";
-					labelConditionValue2.Text = "Entry";
-					labelConditionValue3.Text = "Guid";
+                case "Near gameobject":
+                    labelConditionValue1.Text = "Gameobject Entry";
+                    labelConditionValue2.Text = "Distance";
+                    labelConditionValue3.Text = "";
+                    comboBoxConditionValue1.Enabled = true;
+                    comboBoxConditionValue2.Enabled = true;
+                    break;
+                case "Object entry guid":
+                    labelConditionValue1.Text = "Type Id";
+                    labelConditionValue2.Text = "Entry";
+                    labelConditionValue3.Text = "Guid";
                     comboBoxConditionValue1.Enabled = true;
                     comboBoxConditionValue1.DropDownStyle = ComboBoxStyle.DropDownList;
                     comboBoxConditionValue1.Items.Add(3);
@@ -1056,10 +1056,10 @@ namespace ConditionCreator
                     comboBoxConditionValue2.Enabled = true;
                     comboBoxConditionValue3.Enabled = true;
                     break;
-				case "TYPE MASK":
-					labelConditionValue1.Text = "TypeMask";
-					labelConditionValue2.Text = "";
-					labelConditionValue3.Text = "";
+                case "Type mask":
+                    labelConditionValue1.Text = "TypeMask";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     comboBoxConditionValue1.DropDownStyle = ComboBoxStyle.DropDownList;
                     comboBoxConditionValue1.Items.Add(8);
@@ -1068,10 +1068,10 @@ namespace ConditionCreator
                     comboBoxConditionValue1.Items.Add(128);
                     comboBoxConditionValue1.SelectedItem = 3;
                     break;
-				case "RELATION TO":
-					labelConditionValue1.Text = "Target";
-					labelConditionValue2.Text = "RelationType";
-					labelConditionValue3.Text = "";
+                case "Relation to":
+                    labelConditionValue1.Text = "Target";
+                    labelConditionValue2.Text = "RelationType";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     comboBoxConditionValue2.Enabled = true;
                     comboBoxConditionValue2.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -1083,17 +1083,17 @@ namespace ConditionCreator
                     comboBoxConditionValue2.Items.Add(5);
                     comboBoxConditionValue2.SelectedItem = 0;
                     break;
-				case "REACTION TO":
-					labelConditionValue1.Text = "Target";
-					labelConditionValue2.Text = "Rankmask";
-					labelConditionValue3.Text = "";
+                case "Reaction to":
+                    labelConditionValue1.Text = "Target";
+                    labelConditionValue2.Text = "Rankmask";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     comboBoxConditionValue2.Enabled = true;
                     break;
-				case "DISTANCE TO":
-					labelConditionValue1.Text = "Target";
-					labelConditionValue2.Text = "Distance";
-					labelConditionValue3.Text = "ComparisionType";
+                case "Distance to":
+                    labelConditionValue1.Text = "Target";
+                    labelConditionValue2.Text = "Distance";
+                    labelConditionValue3.Text = "ComparisionType";
                     comboBoxConditionValue1.Enabled = true;
                     comboBoxConditionValue2.Enabled = true;
                     comboBoxConditionValue3.Enabled = true;
@@ -1105,15 +1105,15 @@ namespace ConditionCreator
                     comboBoxConditionValue3.Items.Add(4);
                     comboBoxConditionValue3.SelectedItem = 0;
                     break;
-				case "ALIVE":
-					labelConditionValue1.Text = "Set NegativeCondition Value";
-					labelConditionValue2.Text = "";
-					labelConditionValue3.Text = "";
-					break;
-				case "HP VAL":
-					labelConditionValue1.Text = "Value";
-					labelConditionValue2.Text = "ComparisionType";
-					labelConditionValue3.Text = "";
+                case "Alive":
+                    labelConditionValue1.Text = "Set NegativeCondition Value";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
+                    break;
+                case "Health point value":
+                    labelConditionValue1.Text = "Value";
+                    labelConditionValue2.Text = "ComparisionType";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     comboBoxConditionValue2.Enabled = true;
                     comboBoxConditionValue2.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -1124,10 +1124,10 @@ namespace ConditionCreator
                     comboBoxConditionValue2.Items.Add(4);
                     comboBoxConditionValue2.SelectedItem = 0;
                     break;
-				case "HP PCT":
-					labelConditionValue1.Text = "Percentage";
-					labelConditionValue2.Text = "ComparisionType";
-					labelConditionValue3.Text = "";
+                case "Health point percentage":
+                    labelConditionValue1.Text = "Percentage";
+                    labelConditionValue2.Text = "ComparisionType";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     comboBoxConditionValue2.Enabled = true;
                     comboBoxConditionValue2.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -1138,21 +1138,21 @@ namespace ConditionCreator
                     comboBoxConditionValue2.Items.Add(4);
                     comboBoxConditionValue2.SelectedItem = 0;
                     break;
-				case "REALM ACHIEVEMENT":
-					labelConditionValue1.Text = "Achievement Id";
-					labelConditionValue2.Text = "";
-					labelConditionValue3.Text = "";
+                case "Realm Acievement":
+                    labelConditionValue1.Text = "Achievement Id";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     break;
-				case "IN WATER":
-					labelConditionValue1.Text = "Set NegativeCondition Value";
-					labelConditionValue2.Text = "";
-					labelConditionValue3.Text = "";
-					break;
-				case "STAND STATE":
-					labelConditionValue1.Text = "StateType";
-					labelConditionValue2.Text = "State";
-					labelConditionValue3.Text = "";
+                case "In Water":
+                    labelConditionValue1.Text = "Set NegativeCondition Value";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
+                    break;
+                case "Stand state":
+                    labelConditionValue1.Text = "StateType";
+                    labelConditionValue2.Text = "State";
+                    labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     comboBoxConditionValue1.DropDownStyle = ComboBoxStyle.DropDownList;
                     comboBoxConditionValue1.Items.Add(0);
@@ -1163,18 +1163,18 @@ namespace ConditionCreator
                     comboBoxConditionValue2.Items.Add(0);
                     comboBoxConditionValue2.Items.Add(1);
                     comboBoxConditionValue2.SelectedItem = 0;
-					break;
-				default:
-					labelConditionValue1.Text = "ConditionValue1";
-					labelConditionValue2.Text = "ConditionValue2";
-					labelConditionValue3.Text = "ConditionValue3";
-					break;
+                    break;
+                default:
+                    labelConditionValue1.Text = "ConditionValue1";
+                    labelConditionValue2.Text = "ConditionValue2";
+                    labelConditionValue3.Text = "ConditionValue3";
+                    break;
             }
             updateComment();
         }
 
-		void updateComment()
-		{
+        void updateComment()
+        {
             if (!updateFields)
                 return;
 
@@ -1191,19 +1191,19 @@ namespace ConditionCreator
 
             // Update Source part of comment
             switch (toolStripComboBoxSource.Text)
-		    {
-				case "CREATURE LOOT TEMPLATE":
-				case "DISENCHANT LOOT TEMPLATE":
-				case "FISHING LOOT TEMPLATE":
-				case "GAMEOBJECT LOOT TEMPLATE":
-				case "ITEM LOOT TEMPLATE":
-				case "MAIL LOOT TEMPLATE":
-				case "MILLING LOOT TEMPLATE":
-				case "PICKPOCKETING LOOT TEMPLATE":
-				case "PROSPECTING LOOT TEMPLATE":
-				case "REFERENCE LOOT TEMPLATE":
-				case "SKINNING LOOT TEMPLATE":
-				case "SPELL LOOT TEMPLATE":
+            {
+                case "Creature loot template":
+                case "Disenchant loot template":
+                case "Fishing loot template":
+                case "Gameobject loot template":
+                case "Item loot template":
+                case "Mail loot template":
+                case "Milling loot template":
+                case "Pickpocketing loot template":
+                case "Prospecting loot template":
+                case "Reference loot template":
+                case "Skinning loot template":
+                case "Spell loot template":
                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Item' AND `Id`=" + textBoxSourceEntry.Text +";");
                     if (DS.Tables["query"].Rows.Count == 0)
                         dbvalue = "INVALID_ITEM";
@@ -1250,8 +1250,8 @@ namespace ConditionCreator
                             break;
                     }
                     SourceComment = dbvalue + " will drop from " + dbvalue1 + " loot template entry " + textBoxSourceGroup.Text + " if ";
-				    break;
-				case "SPELL IMPLICIT TARGET":
+                    break;
+                case "Spell implicit target":
 
                     switch (textBoxSourceGroup.Text)
                     {
@@ -1284,13 +1284,13 @@ namespace ConditionCreator
 
                     SourceComment = "Spell " + dbvalue + " " + effect + " will hit the " + target + " if ";
                     break;
-				case "GOSSIP MENU":
+                case "Gossip menu":
                     SourceComment = "Show gossip menu " + textBoxSourceGroup.Text + " text id " + textBoxSourceEntry.Text + " if ";
-					break;
-				case "GOSSIP MENU OPTION":
+                    break;
+                case "Gossip menu option":
                     SourceComment = "Show gossip menu " + textBoxSourceGroup.Text + " option id " + textBoxSourceEntry.Text + " if ";
-				    break;
-				case "CREATURE TEMPLATE VEHICLE":
+                    break;
+                case "Creature template vehicle":
                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Unit' AND `Id`=" + textBoxSourceEntry.Text + ";");
                     if (DS.Tables["query"].Rows.Count == 0)
                         dbvalue = "INVALID_UNIT";
@@ -1308,7 +1308,7 @@ namespace ConditionCreator
                     }
                     SourceComment = "Condition will be true for " + target + dbvalue + " if ";
                     break;
-				case "SPELL":
+                case "Spell":
                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Spell' AND `Id`=" + textBoxSourceEntry.Text + ";");
                     if (DS.Tables["query"].Rows.Count == 0)
                         dbvalue = "INVALID_SPELL";
@@ -1326,7 +1326,7 @@ namespace ConditionCreator
                     }
                     SourceComment = "Spell " + dbvalue + " will hit the " + target + " if ";
                     break;
-				case "SPELL CLICK EVENT":
+                case "Spell click event":
                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Unit' AND `Id`=" + textBoxSourceGroup.Text + ";");
                     if (DS.Tables["query"].Rows.Count == 0)
                         dbvalue = "INVALID_UNIT";
@@ -1350,7 +1350,7 @@ namespace ConditionCreator
                     }
                     SourceComment = "Spellclick unit " + dbvalue + " will cast spell " + dbvalue1  + " on " + target + " if ";
                     break;
-				case "QUEST ACCEPT":
+                case "Quest accept":
                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Quest' AND `Id`=" + textBoxSourceEntry.Text + ";");
                     if (DS.Tables["query"].Rows.Count == 0)
                         dbvalue = "INVALID_QUEST";
@@ -1358,7 +1358,7 @@ namespace ConditionCreator
                         dbvalue = DS.Tables["query"].Rows[0][0].ToString();
                     SourceComment = "Show quest " + dbvalue + " if ";
                     break;
-				case "QUEST SHOW MARK":
+                case "Quest show mark":
                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Quest' AND `Id`=" + textBoxSourceEntry.Text + ";");
                     if (DS.Tables["query"].Rows.Count == 0)
                         dbvalue = "INVALID_QUEST";
@@ -1366,7 +1366,7 @@ namespace ConditionCreator
                         dbvalue = DS.Tables["query"].Rows[0][0].ToString();
                     SourceComment = "Show quest mark on questgiver for quest " + dbvalue + " if ";
                     break;
-				case "VEHICLE SPELL":
+                case "Vehicle spell":
                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Unit' AND `Id`=" + textBoxSourceGroup.Text + ";");
                     if (DS.Tables["query"].Rows.Count == 0)
                         dbvalue = "INVALID_UNIT";
@@ -1390,7 +1390,7 @@ namespace ConditionCreator
                     }
                     SourceComment = "Vehicle unit " + dbvalue + " will cast spell " + dbvalue1 + " on " + target + " if ";
                     break;
-				case "SMART EVENT":
+                case "Smart event":
                     switch (textBoxSourceId.Text)
                     {
                         case "0":
@@ -1427,7 +1427,7 @@ namespace ConditionCreator
                     int id = Int32.Parse(textBoxSourceGroup.Text) - 1;
                     SourceComment = " Id " + id + " of " + target + " for EntryOrGuid " + textBoxSourceEntry.Text + " will execute if ";
                     break;
-				case "NPC VENDOR":
+                case "NPC vendor":
                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Unit' AND `Id`=" + textBoxSourceGroup.Text + ";");
                     if (DS.Tables["query"].Rows.Count == 0)
                         dbvalue = "INVALID_UNIT";
@@ -1442,7 +1442,7 @@ namespace ConditionCreator
 
                     SourceComment = "Vendor " + dbvalue + " will sell item " + dbvalue1 + " if ";
                     break;
-				case "SPELL PROC":
+                case "Spell proc":
                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Spell' AND `Id`=" + textBoxSourceEntry.Text + ";");
                     if (DS.Tables["query"].Rows.Count == 0)
                         dbvalue = "INVALID_SPELL";
@@ -1460,21 +1460,21 @@ namespace ConditionCreator
                     }
                     SourceComment = "Spell " + dbvalue + " can proc on " + target + " if ";
                     break;
-				case "TERRAIN SWAP":
+                case "Terrain swap":
                     labelSourceEntry.Text = "Map Id";
                     SourceComment = "Terrain swap map " + textBoxSourceEntry.Text + " if ";
                     break;
-				case "PHASE":
+                case "Phase":
                     SourceComment = "Set Phase to " + textBoxSourceGroup.Text + " for area " + textBoxSourceEntry.Text + " if ";
                     break;
-			}
+            }
 
             // Update Condition part of comment
             switch (toolStripComboBoxCondition.Text)
-			{
-                case "NONE":
+            {
+                case "None":
                     break;
-                case "AURA":
+                case "Aura":
                    DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Spell' AND `Id`=" + comboBoxConditionValue1.Text + ";");
                    if (DS.Tables["query"].Rows.Count == 0)
                         dbvalue = "INVALID_SPELL";
@@ -1497,7 +1497,7 @@ namespace ConditionCreator
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "does not have";
                     ConditionComment = "target " + NegativeCondition + " aura " + dbvalue + " " + effect + ".";
                     break;
-				case "ITEM":
+                case "Item":
                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Item' AND `Id`=" + comboBoxConditionValue1.Text + ";");
                     if (DS.Tables["query"].Rows.Count == 0)
                         dbvalue = "INVALID_ITEM";
@@ -1514,7 +1514,7 @@ namespace ConditionCreator
 
                     ConditionComment = "player " + NegativeCondition + comboBoxConditionValue2.Text + " of " + dbvalue + "." + dbvalue1;
                     break;
-				case "ITEM EQUIPPED":
+                case "Item equipped":
                         DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Item' AND `Id`=" + comboBoxConditionValue1.Text + ";");
                         if (DS.Tables["query"].Rows.Count == 0)
                             dbvalue = "INVALID_ITEM";
@@ -1524,7 +1524,7 @@ namespace ConditionCreator
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "does not have ";
                     ConditionComment = "player " + NegativeCondition + dbvalue + " equiped.";
                         break;
-				case "ZONE ID":
+                case "zone id":
                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Area' AND `Id`=" + comboBoxConditionValue1.Text + ";");
                     if (DS.Tables["query"].Rows.Count == 0)
                         dbvalue = "INVALID_ZONE";
@@ -1535,7 +1535,7 @@ namespace ConditionCreator
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
                     ConditionComment = "player is " + NegativeCondition + "in zone " + dbvalue + ".";
                     break;
-				case "REPUTATION RANK":
+                case "Reputation rank":
                     dbvalue1 = "";
                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Faction' AND `Id`=" + comboBoxConditionValue1.Text + ";");
                     if (DS.Tables["query"].Rows.Count == 0)
@@ -1600,7 +1600,7 @@ namespace ConditionCreator
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
                     ConditionComment = "player is " + NegativeCondition + dbvalue1 + " with faction " + dbvalue + ".";
                     break;
-				case "TEAM":
+                case "Team":
                     switch (comboBoxConditionValue1.Text)
                     {
                         case "67":
@@ -1614,7 +1614,7 @@ namespace ConditionCreator
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
                     ConditionComment = "player is " + NegativeCondition + "on the " + target + " team.";
                     break;
-				case "SKILL":
+                case "Skill":
                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Skill' AND `Id`=" + comboBoxConditionValue1.Text + ";");
                     if (DS.Tables["query"].Rows.Count == 0)
                         dbvalue = "INVALID_SKILL";
@@ -1625,7 +1625,7 @@ namespace ConditionCreator
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
                     ConditionComment = "player must " + NegativeCondition + "have reached " + comboBoxConditionValue2.Text + " on skill " + dbvalue + ".";
                     break;
-				case "QUEST REWARDED":
+                case "Quest rewarded":
                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Quest' AND `Id`=" + comboBoxConditionValue1.Text + ";");
                     if (DS.Tables["query"].Rows.Count == 0)
                         dbvalue = "INVALID_QUEST";
@@ -1635,8 +1635,8 @@ namespace ConditionCreator
                     NegativeCondition = "";
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
                     ConditionComment = "quest " + dbvalue + " has " + NegativeCondition + "been rewarded.";
-					break;
-				case "QUEST TAKEN":
+                    break;
+                case "Quest taken":
                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Quest' AND `Id`=" + comboBoxConditionValue1.Text + ";");
                     if (DS.Tables["query"].Rows.Count == 0)
                         dbvalue = "INVALID_QUEST";
@@ -1646,8 +1646,8 @@ namespace ConditionCreator
                     NegativeCondition = "";
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
                     ConditionComment = "quest " + dbvalue + " has " + NegativeCondition + "been taken.";
-				    break;
-                case "DRUNKEN STATE":
+                    break;
+                case "Drunken state":
                     switch (comboBoxConditionValue1.Text)
                     {
                         case "0":
@@ -1667,22 +1667,22 @@ namespace ConditionCreator
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
                     ConditionComment = "player is " + NegativeCondition + target + ".";
                     break;
-				case "WORLD STATE":
+                case "World state":
                     NegativeCondition = "";
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = " not";
                     ConditionComment = "world state is" + NegativeCondition + " " + comboBoxConditionValue1.Text + ".";
                     break;
-				case "ACTIVE EVENT":
+                case "Active world event":
                     NegativeCondition = "";
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = " not";
                     ConditionComment = "active event is" + NegativeCondition + " " + comboBoxConditionValue1.Text + ".";
                     break;
-				case "INSTANCE INFO":
+                case "Instance info":
                     NegativeCondition = "";
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
                     ConditionComment = "instance info event entry " + comboBoxConditionValue1.Text + " data " + comboBoxConditionValue2.Text + " type " + comboBoxConditionValue3.Text + " has " + NegativeCondition + "been completed.";
                     break;
-				case "QUEST NONE":
+                case "Quest not taken":
                         if (comboBoxConditionValue1.Text == "") break;
                         DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Quest' AND `Id`=" + comboBoxConditionValue1.Text + ";");
                         if (DS.Tables["query"].Rows.Count == 0)
@@ -1693,8 +1693,8 @@ namespace ConditionCreator
                     NegativeCondition = "not ";
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "";
                     ConditionComment = "quest " + dbvalue + " has " + NegativeCondition + "been taken.";
-					break;
-				case "CLASS":
+                    break;
+                case "Class":
                         if (comboBoxConditionValue1.Text == "") break;
                         dbvalue = "";
                         try
@@ -1731,7 +1731,7 @@ namespace ConditionCreator
                         if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
                         ConditionComment = "player is " + NegativeCondition + "a " + dbvalue + ".";
                     break;
-				case "RACE":    
+                case "Race":
                         try
                         {
                             intvalue = Int32.Parse(comboBoxConditionValue1.Text);
@@ -1765,7 +1765,7 @@ namespace ConditionCreator
                         if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
                         ConditionComment = "player is " + NegativeCondition + "a " + dbvalue + ".";
                     break;
-				case "ACHIEVEMENT":
+                case "Acievement":
                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Achievement' AND `Id`=" + comboBoxConditionValue1.Text + ";");
                     if (DS.Tables["query"].Rows.Count == 0)
                         dbvalue = "INVALID_ACHIEVEMENT";
@@ -1775,7 +1775,7 @@ namespace ConditionCreator
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "does not have ";
                     ConditionComment = "player " + NegativeCondition + "achievement " + dbvalue + ".";
                     break;
-				case "TITLE":
+                case "Title":
                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Title' AND `Id`=" + comboBoxConditionValue1.Text + ";");
                     if (DS.Tables["query"].Rows.Count == 0)
                         dbvalue = "INVALID_TITLE";
@@ -1785,12 +1785,12 @@ namespace ConditionCreator
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "does not have ";
                     ConditionComment = "player " + NegativeCondition + "title " + dbvalue + ".";
                     break;
-				case "SPAWN MASK":
+                case "Spawn mask":
                     NegativeCondition = "";
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = " not";
                     ConditionComment = "spawn mask is" + NegativeCondition + " " + comboBoxConditionValue1.Text + ".";
                     break;
-				case "GENDER":
+                case "Gender":
                     switch (comboBoxConditionValue1.Text)
                     {
                         case "0":
@@ -1807,12 +1807,12 @@ namespace ConditionCreator
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = " not";
                     ConditionComment = "target gender is" + NegativeCondition + " " + target + ".";
                     break;
-				case "UNIT STATE":
+                case "Unit state":
                     NegativeCondition = "";
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = " not";
                     ConditionComment = "unit state is" + NegativeCondition + " " + comboBoxConditionValue1.Text + ".";
                     break;
-				case "MAP ID":
+                case "Map id":
                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Map' AND `Id`=" + comboBoxConditionValue1.Text + ";");
                     if (DS.Tables["query"].Rows.Count == 0)
                         dbvalue = "INVALID_MAP";
@@ -1822,7 +1822,7 @@ namespace ConditionCreator
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = " not";
                     ConditionComment = "target map is" + NegativeCondition + " " + dbvalue + ".";
                     break;
-				case "AREA ID":
+                case "Area id":
                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Area' AND `Id`=" + comboBoxConditionValue1.Text + ";");
                     if (DS.Tables["query"].Rows.Count == 0)
                         dbvalue = "INVALID_AREA";
@@ -1832,7 +1832,7 @@ namespace ConditionCreator
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = " not";
                     ConditionComment = "target area is" + NegativeCondition + " " + dbvalue + ".";
                     break;
-				case "SPELL":
+                case "Spell":
                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Spell' AND `Id`=" + comboBoxConditionValue1.Text + ";");
                     if (DS.Tables["query"].Rows.Count == 0)
                         dbvalue = "INVALID_SPELL";
@@ -1842,12 +1842,12 @@ namespace ConditionCreator
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = " not";
                     ConditionComment = "target spell is" + NegativeCondition + " " + dbvalue + ".";
                     break;
-				case "PHASEMASK":
+                case "Phase mask":
                     NegativeCondition = "";
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = " not";
                     ConditionComment = "phasemask is" + NegativeCondition + " " + comboBoxConditionValue1.Text + ".";
                     break;
-				case "LEVEL":
+                case "Level":
                     switch (comboBoxConditionValue2.Text)
                     {
                         case "0":
@@ -1870,7 +1870,7 @@ namespace ConditionCreator
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
                     ConditionComment = "player level must " + NegativeCondition + "be " + target + comboBoxConditionValue1.Text + ".";
                     break;
-				case "QUEST COMPLETE":
+                case "Quest complete":
                     if (comboBoxConditionValue1.Text == "") break;
                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Quest' AND `Id`=" + comboBoxConditionValue1.Text + ";");
                     if (DS.Tables["query"].Rows.Count == 0)
@@ -1880,8 +1880,8 @@ namespace ConditionCreator
                     NegativeCondition = "";
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
                     ConditionComment = "quest " + dbvalue + " has " + NegativeCondition + "been completed.";
-		        	break;
-				case "NEAR CREATURE":
+                    break;
+                case "Near creature":
                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Unit' AND `Id`=" + comboBoxConditionValue1.Text + ";");
                     if (DS.Tables["query"].Rows.Count == 0)
                         dbvalue = "INVALID_UNIT";
@@ -1891,7 +1891,7 @@ namespace ConditionCreator
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
                     ConditionComment = "target is " + NegativeCondition + "unit " + dbvalue + " within " + comboBoxConditionValue2.Text + " yards.";
                     break;
-				case "NEAR GAMEOBJECT":
+                case "Near gameobject":
                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'GameObject' AND `Id`=" + comboBoxConditionValue1.Text + ";");
                     if (DS.Tables["query"].Rows.Count == 0)
                         dbvalue = "INVALID_GAMEOBJECT";
@@ -1901,7 +1901,7 @@ namespace ConditionCreator
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
                     ConditionComment = "target is " + NegativeCondition + "gameobject " + dbvalue + " within " + comboBoxConditionValue2.Text + " yards.";
                     break;
-				case "OBJECT ENTRY GUID":
+                case "Object entry guid":
                     switch (comboBoxConditionValue1.Text)
                     {
                         case "3":
@@ -1967,7 +1967,7 @@ namespace ConditionCreator
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
                     ConditionComment = "target is " + NegativeCondition + dbvalue + " " + dbvalue1 + dbvalue2 + ".";
                     break;
-				case "TYPE MASK":
+                case "Type mask":
                     switch (comboBoxConditionValue1.Text)
                     {
                         case "8":
@@ -1987,11 +1987,11 @@ namespace ConditionCreator
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
                     ConditionComment = "target is " + NegativeCondition + target + ".";
                     break;
-				case "RELATION TO":
+                case "Relation to":
                     // *** TO DO ***
 
                     break;
-				case "REACTION TO":
+                case "Reaction to":
                     // *** TO DO ***
                     switch (comboBoxConditionValue2.Text)
                     {
@@ -2024,20 +2024,16 @@ namespace ConditionCreator
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
                     ConditionComment = "target must " + NegativeCondition + "be" + target + ".";
                     break;
-				case "DISTANCE TO":
+                case "Distance to":
                     // *** TO DO ***
 
                     break;
-				case "ALIVE":
-                    dbvalue = "aLive";
-                    if (checkBoxNegativeCondition.Checked)
-                        dbvalue = "dead";
-
-                    NegativeCondition = "";
-                    if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
-                    ConditionComment = "target must " + NegativeCondition + "be" + dbvalue + ".";
+                case "ALive":
+                    NegativeCondition = "alive.";
+                    if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "dead.";
+                    ConditionComment = "target is " + NegativeCondition;
                     break;
-				case "HP VAL":
+                case "Health points Value":
                     switch (comboBoxConditionValue2.Text)
                     {
                         case "0":
@@ -2060,7 +2056,7 @@ namespace ConditionCreator
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
                     ConditionComment = "target health value must " + NegativeCondition + "be " + target + " " + comboBoxConditionValue1.Text + ".";
                     break;
-				case "HP PCT":
+                case "Health points percentage":
                     switch (comboBoxConditionValue2.Text)
                     {
                         case "0":
@@ -2083,27 +2079,23 @@ namespace ConditionCreator
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
                     ConditionComment = "target health percentage must " + NegativeCondition + "be " + target + " " + comboBoxConditionValue1.Text + "% of max Health.";
                     break;
-				case "REALM ACHIEVEMENT":
+                case "Realm Achievement":
                     // *** TO DO ***
 
                     break;
-				case "IN WATER":
-                    target = "on land";
-                    if (checkBoxNegativeCondition.Checked)
-                        target = "in water";
-
-                    NegativeCondition = "";
-                    if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
-                    ConditionComment = "target must " + NegativeCondition + "be" + target + ".";
+                case "In water":
+                    NegativeCondition = "on land.";
+                    if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "in water.";
+                    ConditionComment = "target is " + NegativeCondition;
                     break;
-				case "STAND STATE":
+                case "Stand state":
                     // *** TO DO ***
 
                     break;
-			}
+            }
             // Output comment to textbox
-			textBoxComment.Text = SourceComment + ConditionComment;
-		}
+            textBoxComment.Text = SourceComment + ConditionComment;
+        }
 
         void CreateSQL()
         {
@@ -2188,6 +2180,16 @@ namespace ConditionCreator
                 FormConditionHelper frm = new FormConditionHelper();
                 frm.Show();
             }
+        }
+
+        private void buttonUp_Click(object sender, EventArgs e)
+        {
+            // Move selected condtion up in table. TODO
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // Move selected condtion down in table. TODO
         }
     }
 }

@@ -1,33 +1,33 @@
 ﻿namespace ConditionCreator
 {
-	partial class FormCreator
-	{
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+    partial class FormCreator
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing && (components != null))
-			{
-				components.Dispose();
-			}
-			base.Dispose(disposing);
-		}
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
-		#region Windows Form Designer generated code
+        #region Windows Form Designer generated code
 
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCreator));
             this.menuStripSourceCondition = new System.Windows.Forms.MenuStrip();
@@ -93,6 +93,8 @@
             this.buttonClearList = new System.Windows.Forms.Button();
             this.buttonRetrieveFromList = new System.Windows.Forms.Button();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.button2 = new System.Windows.Forms.Button();
+            this.buttonUp = new System.Windows.Forms.Button();
             this.menuStripSourceCondition.SuspendLayout();
             this.groupBoxConditionType.SuspendLayout();
             this.groupBoxReferenceType.SuspendLayout();
@@ -130,33 +132,33 @@
             this.toolStripComboBoxSource.DropDownWidth = 200;
             this.toolStripComboBoxSource.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.toolStripComboBoxSource.Items.AddRange(new object[] {
-            "NONE",
-            "CREATURE LOOT TEMPLATE",
-            "DISENCHANT LOOT TEMPLATE",
-            "FISHING LOOT TEMPLATE",
-            "GAMEOBJECT LOOT TEMPLATE",
-            "ITEM LOOT TEMPLATE",
-            "MAIL LOOT TEMPLATE",
-            "MILLING LOOT TEMPLATE",
-            "PICKPOCKETING LOOT TEMPLATE",
-            "PROSPECTING LOOT TEMPLATE",
-            "REFERENCE LOOT TEMPLATE",
-            "SKINNING LOOT TEMPLATE",
-            "SPELL LOOT TEMPLATE",
-            "SPELL IMPLICIT TARGET",
-            "GOSSIP MENU",
-            "GOSSIP MENU OPTION",
-            "CREATURE TEMPLATE VEHICLE",
-            "SPELL",
-            "SPELL CLICK EVENT",
-            "QUEST ACCEPT",
-            "QUEST SHOW MARK",
-            "VEHICLE SPELL",
-            "SMART EVENT",
-            "NPC VENDOR",
-            "SPELL PROC",
-            "TERRAIN SWAP",
-            "PHASE"});
+            "None",
+            "Creature loot template",
+            "Disenchant loot template",
+            "Fishing loot template",
+            "Gameobject loot template",
+            "Item loot template",
+            "Mail loot template",
+            "Milling loot template",
+            "Pickpocketing loot template",
+            "Prospecting loot template",
+            "Reference loot template",
+            "Skinning loot template",
+            "Spell loot template",
+            "Spell implicit target",
+            "Gossip menu",
+            "Gossip menu option",
+            "Creature template vehicle",
+            "Spell",
+            "Spell click event",
+            "Quest accept",
+            "Quest show mark",
+            "Vehicle spell",
+            "Smart event",
+            "NPC vendor",
+            "Spell proc",
+            "Terrain swap",
+            "Phase"});
             this.toolStripComboBoxSource.Name = "toolStripComboBoxSource";
             this.toolStripComboBoxSource.Size = new System.Drawing.Size(200, 23);
             this.toolStripComboBoxSource.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBoxSource_SelectedIndexChanged);
@@ -174,47 +176,47 @@
             this.toolStripComboBoxCondition.DropDownWidth = 200;
             this.toolStripComboBoxCondition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.toolStripComboBoxCondition.Items.AddRange(new object[] {
-            "NONE",
-            "AURA",
-            "ITEM",
-            "ITEM EQUIPPED",
-            "ZONE ID",
-            "REPUTATION RANK",
-            "TEAM",
-            "SKILL",
-            "QUEST REWARDED",
-            "QUEST TAKEN",
-            "DRUNKEN STATE",
-            "WORLD STATE",
-            "ACTIVE EVENT",
-            "INSTANCE INFO",
-            "QUEST NONE",
-            "CLASS",
-            "RACE",
-            "ACHIEVEMENT",
-            "TITLE",
-            "SPAWN MASK",
-            "GENDER",
-            "UNIT STATE",
-            "MAP ID",
-            "AREA ID",
-            "SPELL",
-            "PHASEMASK",
-            "LEVEL",
-            "QUEST COMPLETE",
-            "NEAR CREATURE",
-            "NEAR GAMEOBJECT",
-            "OBJECT ENTRY GUID",
-            "TYPE MASK",
-            "RELATION TO",
-            "REACTION TO",
-            "DISTANCE TO",
-            "ALIVE",
-            "HP VAL",
-            "HP PCT",
-            "REALM ACHIEVEMENT",
-            "IN WATER",
-            "STAND STATE"});
+            "None",
+            "Aura",
+            "Item",
+            "Item equipped",
+            "Zone id",
+            "Reputation rank",
+            "team",
+            "Skill",
+            "Quest rewarded",
+            "Quest taken",
+            "Drunken state",
+            "World state",
+            "Active world event",
+            "Instance Info",
+            "Quest not taken",
+            "Class",
+            "Race",
+            "Achievement",
+            "Title",
+            "Spawn mask",
+            "Gender",
+            "Unit state",
+            "Map id",
+            "Area id",
+            "Spell",
+            "Phase mask",
+            "Level",
+            "Quest complete",
+            "Near creature",
+            "Near gameobject",
+            "Object entry guid",
+            "Type mask",
+            "Relation to",
+            "Reaction to",
+            "Distance to",
+            "Alive",
+            "Healh point value",
+            "Health point percentage",
+            "Realm Achievement",
+            "In Water",
+            "Stand state"});
             this.toolStripComboBoxCondition.Name = "toolStripComboBoxCondition";
             this.toolStripComboBoxCondition.Size = new System.Drawing.Size(200, 23);
             this.toolStripComboBoxCondition.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBoxCondition_SelectedIndexChanged);
@@ -611,7 +613,7 @@
             this.dataGridViewConditions.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridViewConditions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewConditions.ShowEditingIcon = false;
-            this.dataGridViewConditions.Size = new System.Drawing.Size(1029, 311);
+            this.dataGridViewConditions.Size = new System.Drawing.Size(979, 311);
             this.dataGridViewConditions.TabIndex = 47;
             // 
             // SourceTypeOrReferenceId
@@ -802,13 +804,37 @@
             this.buttonRetrieveFromList.Text = "Retrieve from List";
             this.buttonRetrieveFromList.UseVisualStyleBackColor = true;
             this.buttonRetrieveFromList.Click += new System.EventHandler(this.buttonRetrieveFromList_Click);
-            // 
+            //
+            // button2
+            //
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Image = global::ConditionCreator.Properties.Resources.down;
+            this.button2.Location = new System.Drawing.Point(997, 277);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(45, 47);
+            this.button2.TabIndex = 1;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            //
+            // buttonUp
+            //
+            this.buttonUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonUp.Image = global::ConditionCreator.Properties.Resources.up;
+            this.buttonUp.Location = new System.Drawing.Point(997, 224);
+            this.buttonUp.Name = "buttonUp";
+            this.buttonUp.Size = new System.Drawing.Size(45, 47);
+            this.buttonUp.TabIndex = 0;
+            this.buttonUp.UseVisualStyleBackColor = true;
+            this.buttonUp.Click += new System.EventHandler(this.buttonUp_Click);
+            //
             // FormCreator
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1054, 547);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.buttonRetrieveFromList);
+            this.Controls.Add(this.buttonUp);
             this.Controls.Add(this.buttonClearList);
             this.Controls.Add(this.groupBoxScript);
             this.Controls.Add(this.buttonAddtoList);
@@ -850,42 +876,42 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
-		}
+        }
 
-		#endregion
+        #endregion
 
-		private System.Windows.Forms.MenuStrip menuStripSourceCondition;
-		private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemConditionType;
-		private System.Windows.Forms.ToolStripComboBox toolStripComboBoxCondition;
-		private System.Windows.Forms.TextBox textBoxScriptName;
-		private System.Windows.Forms.Label labelScriptName;
-		private System.Windows.Forms.TextBox textBoxComment;
-		private System.Windows.Forms.Label labelComment;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSourceType;
-		private System.Windows.Forms.ToolStripComboBox toolStripComboBoxSource;
-		private System.Windows.Forms.GroupBox groupBoxConditionType;
-		private System.Windows.Forms.TextBox textBoxSourceId;
-		private System.Windows.Forms.Label labelSourceId;
-		private System.Windows.Forms.TextBox textBoxSourceEntry;
-		private System.Windows.Forms.Label labelSourceEntry;
-		private System.Windows.Forms.TextBox textBoxSourceGroup;
-		private System.Windows.Forms.Label labelSourceGroup;
-		private System.Windows.Forms.GroupBox groupBoxReferenceType;
-		private System.Windows.Forms.Label labelConditionValue3;
-		private System.Windows.Forms.Label labelConditionValue2;
-		private System.Windows.Forms.Label labelConditionValue1;
-		private System.Windows.Forms.GroupBox groupBoxErrorHandling;
-		private System.Windows.Forms.TextBox textBoxErrorTextId;
-		private System.Windows.Forms.Label labelErrorTextId;
-		private System.Windows.Forms.TextBox textBoxErrorType;
-		private System.Windows.Forms.Label labelErrorType;
-		private System.Windows.Forms.Button buttonResetAll;
-		private System.Windows.Forms.ToolTip toolTip;
-		private System.Windows.Forms.GroupBox groupBoxLogicalGrouping;
-		private System.Windows.Forms.TextBox textBoxElseGroup;
-		private System.Windows.Forms.Label labelElseGroup;
-		private System.Windows.Forms.GroupBox groupBoxReverseTrueCondition;
-		private System.Windows.Forms.CheckBox checkBoxNegativeCondition;
+        private System.Windows.Forms.MenuStrip menuStripSourceCondition;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemConditionType;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBoxCondition;
+        private System.Windows.Forms.TextBox textBoxScriptName;
+        private System.Windows.Forms.Label labelScriptName;
+        private System.Windows.Forms.TextBox textBoxComment;
+        private System.Windows.Forms.Label labelComment;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSourceType;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBoxSource;
+        private System.Windows.Forms.GroupBox groupBoxConditionType;
+        private System.Windows.Forms.TextBox textBoxSourceId;
+        private System.Windows.Forms.Label labelSourceId;
+        private System.Windows.Forms.TextBox textBoxSourceEntry;
+        private System.Windows.Forms.Label labelSourceEntry;
+        private System.Windows.Forms.TextBox textBoxSourceGroup;
+        private System.Windows.Forms.Label labelSourceGroup;
+        private System.Windows.Forms.GroupBox groupBoxReferenceType;
+        private System.Windows.Forms.Label labelConditionValue3;
+        private System.Windows.Forms.Label labelConditionValue2;
+        private System.Windows.Forms.Label labelConditionValue1;
+        private System.Windows.Forms.GroupBox groupBoxErrorHandling;
+        private System.Windows.Forms.TextBox textBoxErrorTextId;
+        private System.Windows.Forms.Label labelErrorTextId;
+        private System.Windows.Forms.TextBox textBoxErrorType;
+        private System.Windows.Forms.Label labelErrorType;
+        private System.Windows.Forms.Button buttonResetAll;
+        private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.GroupBox groupBoxLogicalGrouping;
+        private System.Windows.Forms.TextBox textBoxElseGroup;
+        private System.Windows.Forms.Label labelElseGroup;
+        private System.Windows.Forms.GroupBox groupBoxReverseTrueCondition;
+        private System.Windows.Forms.CheckBox checkBoxNegativeCondition;
         private System.Windows.Forms.Label labelTarget;
         private System.Windows.Forms.ComboBox comboBoxConditionTarget;
         private System.Windows.Forms.ComboBox comboBoxConditionValue1;
@@ -917,6 +943,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ScriptName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Comment;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonUp;
     }
 }
 

@@ -98,6 +98,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -114,6 +115,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Chromatix-Pulse-Pack-Ok-no.ico" />
+    <None Include="down.ico" />
+    <None Include="up.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
