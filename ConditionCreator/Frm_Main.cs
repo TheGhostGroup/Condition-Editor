@@ -1988,45 +1988,116 @@ namespace ConditionCreator
                     ConditionComment = "target is " + NegativeCondition + target + ".";
                     break;
                 case "Relation to":
-                    // *** TO DO ***
-
-                    break;
-                case "Reaction to":
-                    // *** TO DO ***
+                    //TODO more info on targets
                     switch (comboBoxConditionValue2.Text)
                     {
+                        case "0":
+                            target = "the same as ";
+                            break;
                         case "1":
-                            target = "Hated";
+                            target = "in a party with ";
                             break;
                         case "2":
-                            target = "Hostile";
+                            target = "in a raid party with ";
+                            break;
+                        case "3":
+                            target = "owned by ";
                             break;
                         case "4":
-                            target = "Unfriendly";
+                            target = "a passenger of ";
                             break;
-                        case "8":
-                            target = "Neutral";
-                            break;
-                        case "16":
-                            target = "Friendly";
-                            break;
-                        case "32":
-                            target = "Honored";
-                            break;
-                        case "64":
-                            target = "Revered";
-                            break;
-                        case "128":
-                            target = "Exalted";
+                        case "5":
+                            target = "created by";
                             break;
                     }
                     NegativeCondition = "";
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
-                    ConditionComment = "target must " + NegativeCondition + "be" + target + ".";
+                    ConditionComment = "target is " + NegativeCondition + target + "condition target.";
+                    break;
+                case "Reaction to":
+                    //TODO more info on targets
+                    dbvalue1 = "";
+
+                    try
+                    {
+                        intvalue = Int32.Parse(comboBoxConditionValue2.Text);
+                        BitArray b = new BitArray(new int[] { intvalue });
+
+                        effect = "";
+                        for (int i = 0; i < 8; i++)
+                        {
+                            if (b[i])
+                            {
+                                switch (i)
+                                {
+                                    case 0:
+                                        effect = "Hated";
+                                        break;
+                                    case 1:
+                                        effect = "Hostile";
+                                        break;
+                                    case 2:
+                                        effect = "Unfriendly";
+                                        break;
+                                    case 3:
+                                        effect = "Neutral";
+                                        break;
+                                    case 4:
+                                        effect = "Friendly";
+                                        break;
+                                    case 5:
+                                        effect = "Honored";
+                                        break;
+                                    case 6:
+                                        effect = "Revered";
+                                        break;
+                                    case 7:
+                                        effect = "Exalted";
+                                        break;
+                                }
+
+                                if (effect != "")
+                                {
+                                    if (dbvalue1 != "")
+                                        dbvalue1 = dbvalue1 + " or ";
+
+                                    dbvalue1 = dbvalue1 + effect;
+                                }
+                            }
+                        }
+                    }
+                    catch (FormatException e)
+                    {
+
+                    }
+
+                    NegativeCondition = "";
+                    if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
+                    ConditionComment = "target is " + NegativeCondition + dbvalue1 + " with condition target.";
                     break;
                 case "Distance to":
-                    // *** TO DO ***
-
+                    //TODO more info on targets
+                    switch (comboBoxConditionValue3.Text)
+                    {
+                        case "0":
+                            target = "equal to ";
+                            break;
+                        case "1":
+                            target = "higher than ";
+                            break;
+                        case "2":
+                            target = "lesser than ";
+                            break;
+                        case "3":
+                            target = "equal or higher than ";
+                            break;
+                        case "4":
+                            target = "equal or lower than ";
+                            break;
+                    }
+                    NegativeCondition = "";
+                    if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
+                    ConditionComment = "distance between targets is " + NegativeCondition + target + comboBoxConditionValue3.Text + ".";
                     break;
                 case "ALive":
                     NegativeCondition = "alive.";
