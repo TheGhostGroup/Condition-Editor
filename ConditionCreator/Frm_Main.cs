@@ -2152,7 +2152,16 @@ namespace ConditionCreator
                     break;
                 case "Realm achievement":
                     // *** TO DO ***
+                    if (comboBoxConditionValue1.Text == "") break;
+                    DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Achievement' AND `Id`=" + comboBoxConditionValue1.Text + ";");
+                    if (DS.Tables["query"].Rows.Count == 0)
+                        dbvalue = "INVALID_ACHIEVEMENT";
+                    else
+                        dbvalue = DS.Tables["query"].Rows[0][0].ToString();
 
+                    NegativeCondition = "has ";
+                    if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "does not have ";
+                    ConditionComment = "player " + NegativeCondition + "achievement " + dbvalue;
                     break;
                 case "In water":
                     NegativeCondition = "on land.";
