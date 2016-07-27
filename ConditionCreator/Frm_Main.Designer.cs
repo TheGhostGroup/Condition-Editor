@@ -62,6 +62,8 @@
             this.labelErrorType = new System.Windows.Forms.Label();
             this.buttonResetAll = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.buttonDown = new System.Windows.Forms.Button();
+            this.buttonUp = new System.Windows.Forms.Button();
             this.groupBoxLogicalGrouping = new System.Windows.Forms.GroupBox();
             this.textBoxElseGroup = new System.Windows.Forms.TextBox();
             this.labelElseGroup = new System.Windows.Forms.Label();
@@ -93,8 +95,6 @@
             this.buttonClearList = new System.Windows.Forms.Button();
             this.buttonRetrieveFromList = new System.Windows.Forms.Button();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.buttonDown = new System.Windows.Forms.Button();
-            this.buttonUp = new System.Windows.Forms.Button();
             this.menuStripSourceCondition.SuspendLayout();
             this.groupBoxConditionType.SuspendLayout();
             this.groupBoxReferenceType.SuspendLayout();
@@ -182,7 +182,7 @@
             "Item equipped",
             "Zone id",
             "Reputation rank",
-            "team",
+            "Team",
             "Skill",
             "Quest rewarded",
             "Quest taken",
@@ -527,6 +527,30 @@
             this.toolTip.BackColor = System.Drawing.Color.Yellow;
             this.toolTip.IsBalloon = true;
             // 
+            // buttonDown
+            // 
+            this.buttonDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonDown.Image = global::ConditionCreator.Properties.Resources.down;
+            this.buttonDown.Location = new System.Drawing.Point(997, 277);
+            this.buttonDown.Name = "buttonDown";
+            this.buttonDown.Size = new System.Drawing.Size(45, 47);
+            this.buttonDown.TabIndex = 1;
+            this.toolTip.SetToolTip(this.buttonDown, "Move selected row down in list.");
+            this.buttonDown.UseVisualStyleBackColor = true;
+            this.buttonDown.Click += new System.EventHandler(this.buttonDown_Click);
+            // 
+            // buttonUp
+            // 
+            this.buttonUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonUp.Image = global::ConditionCreator.Properties.Resources.up;
+            this.buttonUp.Location = new System.Drawing.Point(997, 224);
+            this.buttonUp.Name = "buttonUp";
+            this.buttonUp.Size = new System.Drawing.Size(45, 47);
+            this.buttonUp.TabIndex = 0;
+            this.toolTip.SetToolTip(this.buttonUp, "Move selected row up in list.");
+            this.buttonUp.UseVisualStyleBackColor = true;
+            this.buttonUp.Click += new System.EventHandler(this.buttonUp_Click);
+            // 
             // groupBoxLogicalGrouping
             // 
             this.groupBoxLogicalGrouping.Controls.Add(this.textBoxElseGroup);
@@ -804,33 +828,9 @@
             this.buttonRetrieveFromList.Text = "Retrieve from List";
             this.buttonRetrieveFromList.UseVisualStyleBackColor = true;
             this.buttonRetrieveFromList.Click += new System.EventHandler(this.buttonRetrieveFromList_Click);
-            //
-            // buttonDown
-            //
-            this.buttonDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonDown.Image = global::ConditionCreator.Properties.Resources.down;
-            this.buttonDown.Location = new System.Drawing.Point(997, 277);
-            this.buttonDown.Name = "buttonDown";
-            this.buttonDown.Size = new System.Drawing.Size(45, 47);
-            this.buttonDown.TabIndex = 1;
-            this.toolTip.SetToolTip(this.buttonDown, "Move selected row down in list.");
-            this.buttonDown.UseVisualStyleBackColor = true;
-            this.buttonDown.Click += new System.EventHandler(this.buttonDown_Click);
-            //
-            // buttonUp
-            //
-            this.buttonUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUp.Image = global::ConditionCreator.Properties.Resources.up;
-            this.buttonUp.Location = new System.Drawing.Point(997, 224);
-            this.buttonUp.Name = "buttonUp";
-            this.buttonUp.Size = new System.Drawing.Size(45, 47);
-            this.buttonUp.TabIndex = 0;
-            this.toolTip.SetToolTip(this.buttonUp, "Move selected row up in list.");
-            this.buttonUp.UseVisualStyleBackColor = true;
-            this.buttonUp.Click += new System.EventHandler(this.buttonUp_Click);
-            //
+            // 
             // FormCreator
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1054, 547);

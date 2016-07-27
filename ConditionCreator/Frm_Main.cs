@@ -368,10 +368,7 @@ namespace ConditionCreator
                         return DS;
                     }
                 }
-                catch (Exception e)
-                {
-                    //MessageBox.Show(ex.Message);
-                }
+                catch (Exception e) {}
             }
             DS.Tables.Add("query");
             return DS;
@@ -421,6 +418,13 @@ namespace ConditionCreator
             row[12] = textBoxErrorTextId.Text;
             row[13] = textBoxScriptName.Text;
             row[14] = textBoxComment.Text;
+
+            for (int i = 0; i < 13; i++)
+            {
+                if (row[i] == "")
+                    row[i] = "0";
+            }
+
             dataGridViewConditions.Rows.Add(row);
         }
 
@@ -506,17 +510,17 @@ namespace ConditionCreator
             toolTip.SetToolTip(this.labelConditionValue2, "");
             toolTip.SetToolTip(this.labelConditionValue3, "");
             comboBoxConditionValue1.Items.Clear();
-            comboBoxConditionValue1.Text = "0";
             comboBoxConditionValue1.Enabled = false;
             comboBoxConditionValue1.DropDownStyle = ComboBoxStyle.DropDown;
+            comboBoxConditionValue1.Text = "0";
             comboBoxConditionValue2.Items.Clear();
-            comboBoxConditionValue2.Text = "0";
             comboBoxConditionValue2.Enabled = false;
             comboBoxConditionValue2.DropDownStyle = ComboBoxStyle.DropDown;
+            comboBoxConditionValue2.Text = "0";
             comboBoxConditionValue3.Items.Clear();
-            comboBoxConditionValue3.Text = "0";
             comboBoxConditionValue3.Enabled = false;
             comboBoxConditionValue3.DropDownStyle = ComboBoxStyle.DropDown;
+            comboBoxConditionValue3.Text = "0";
             conditionValue = toolStripComboBoxCondition.SelectedIndex;
             if (conditionValue > 23) ++conditionValue; // 24 is unused so selectedindex will be off after item 23.
         }
@@ -2235,6 +2239,7 @@ namespace ConditionCreator
                 sqlDelete = "DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=" + row.Cells[0].Value + " AND `SourceGroup`=" + row.Cells[1].Value + " AND `SourceEntry`=" + row.Cells[2].Value + " AND `SourceId`=" + row.Cells[3].Value + ";" + "\r\n";
                 scriptname = row.Cells[13].Value.ToString().Replace("'", "''");
                 comment = row.Cells[14].Value.ToString().Replace("'", "''");
+
                 sqlInsertValues = "(" + row.Cells[0].Value + ", " + row.Cells[1].Value + ", " + row.Cells[2].Value + ", " + row.Cells[3].Value + ", " + row.Cells[4].Value + ", " + row.Cells[5].Value + ", " + row.Cells[6].Value + ", " + row.Cells[7].Value + ", " + row.Cells[8].Value + ", " + row.Cells[9].Value + ", " + row.Cells[10].Value + ", " + row.Cells[11].Value + ", " + row.Cells[12].Value + ", '" + row.Cells[13].Value + "', '" + row.Cells[14].Value + "');\r\n\r\n";
                 sqlString = sqlString + sqlComment + sqlDelete + sqlInsertString + sqlInsertValues;
             }
