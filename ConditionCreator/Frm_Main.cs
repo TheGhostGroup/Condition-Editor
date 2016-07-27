@@ -2097,7 +2097,7 @@ namespace ConditionCreator
                     }
                     NegativeCondition = "";
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
-                    ConditionComment = "distance between targets is " + NegativeCondition + target + comboBoxConditionValue3.Text + ".";
+                    ConditionComment = "distance between targets is " + NegativeCondition + target + comboBoxConditionValue2.Text + " yards.";
                     break;
                 case "ALive":
                     NegativeCondition = "alive.";
