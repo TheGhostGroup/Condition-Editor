@@ -289,106 +289,6 @@ namespace ConditionCreator
             textBoxRace.Text = raceMask.ToString();
         }
 
-        private void checkBox23_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox23.Checked)
-                raceMask = raceMask + 2048;
-            else
-                raceMask = raceMask - 2048;
-
-            textBoxRace.Text = raceMask.ToString();
-        }
-
-        private void checkBox24_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox24.Checked)
-                raceMask = raceMask + 4096;
-            else
-                raceMask = raceMask - 4096;
-
-            textBoxRace.Text = raceMask.ToString();
-        }
-
-        private void checkBox25_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox25.Checked)
-                raceMask = raceMask + 8192;
-            else
-                raceMask = raceMask - 8192;
-
-            textBoxRace.Text = raceMask.ToString();
-        }
-
-        private void checkBox26_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox26.Checked)
-                raceMask = raceMask + 16384;
-            else
-                raceMask = raceMask - 16384;
-
-            textBoxRace.Text = raceMask.ToString();
-        }
-
-        private void checkBox27_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox27.Checked)
-                raceMask = raceMask + 32768;
-            else
-                raceMask = raceMask - 32768;
-
-            textBoxRace.Text = raceMask.ToString();
-        }
-
-        private void checkBox28_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox28.Checked)
-                raceMask = raceMask + 65536;
-            else
-                raceMask = raceMask - 65536;
-
-            textBoxRace.Text = raceMask.ToString();
-        }
-
-        private void checkBox29_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox29.Checked)
-                raceMask = raceMask + 131072;
-            else
-                raceMask = raceMask - 131072;
-
-            textBoxRace.Text = raceMask.ToString();
-        }
-
-        private void checkBox30_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox30.Checked)
-                raceMask = raceMask + 262144;
-            else
-                raceMask = raceMask - 262144;
-
-            textBoxRace.Text = raceMask.ToString();
-        }
-
-        private void checkBox31_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox31.Checked)
-                raceMask = raceMask + 524288;
-            else
-                raceMask = raceMask - 524288;
-
-            textBoxRace.Text = raceMask.ToString();
-        }
-
-        private void checkBox32_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox32.Checked)
-                raceMask = raceMask + 1048576;
-            else
-                raceMask = raceMask - 1048576;
-
-            textBoxRace.Text = raceMask.ToString();
-        }
-
         private void checkBox33_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox33.Checked)
@@ -572,6 +472,11 @@ namespace ConditionCreator
             DataGridViewColumn column = dataGridView.Columns[1];
             column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             labelList.Text = "Showing " + listId + " Id List";
+        }
+
+        private void FormConditionHelper_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
