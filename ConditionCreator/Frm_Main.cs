@@ -2255,12 +2255,42 @@ namespace ConditionCreator
 
         private void buttonUp_Click(object sender, EventArgs e)
         {
-            // Move selected condtion up in table. TODO
+            try
+            {
+                int totalRows = dataGridViewConditions.Rows.Count;
+                // get index of the row for the selected cell
+                int rowIndex = dataGridViewConditions.SelectedCells[0].OwningRow.Index;
+                if (rowIndex == 0)
+                    return;
+                // get index of the column for the selected cell
+                int colIndex = dataGridViewConditions.SelectedCells[0].OwningColumn.Index;
+                DataGridViewRow selectedRow = dataGridViewConditions.Rows[rowIndex];
+                dataGridViewConditions.Rows.Remove(selectedRow);
+                dataGridViewConditions.Rows.Insert(rowIndex - 1, selectedRow);
+                dataGridViewConditions.ClearSelection();
+                dataGridViewConditions.Rows[rowIndex - 1].Cells[colIndex].Selected = true;
+            }
+            catch { }
         }
 
         private void buttonDown_Click(object sender, EventArgs e)
         {
-            // Move selected condtion down in table. TODO
+            try
+            {
+                int totalRows = dataGridViewConditions.Rows.Count;
+                // get index of the row for the selected cell
+                int rowIndex = dataGridViewConditions.SelectedCells[0].OwningRow.Index;
+                if (rowIndex == totalRows - 1)
+                    return;
+                // get index of the column for the selected cell
+                int colIndex = dataGridViewConditions.SelectedCells[0].OwningColumn.Index;
+                DataGridViewRow selectedRow = dataGridViewConditions.Rows[rowIndex];
+                dataGridViewConditions.Rows.Remove(selectedRow);
+                dataGridViewConditions.Rows.Insert(rowIndex + 1, selectedRow);
+                dataGridViewConditions.ClearSelection();
+                dataGridViewConditions.Rows[rowIndex + 1].Cells[colIndex].Selected = true;
+            }
+            catch { }
         }
     }
 }

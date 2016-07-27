@@ -813,6 +813,7 @@
             this.buttonDown.Name = "buttonDown";
             this.buttonDown.Size = new System.Drawing.Size(45, 47);
             this.buttonDown.TabIndex = 1;
+            this.toolTip.SetToolTip(this.buttonDown, "Move selected row down in list.");
             this.buttonDown.UseVisualStyleBackColor = true;
             this.buttonDown.Click += new System.EventHandler(this.buttonDown_Click);
             //
@@ -824,6 +825,7 @@
             this.buttonUp.Name = "buttonUp";
             this.buttonUp.Size = new System.Drawing.Size(45, 47);
             this.buttonUp.TabIndex = 0;
+            this.toolTip.SetToolTip(this.buttonUp, "Move selected row up in list.");
             this.buttonUp.UseVisualStyleBackColor = true;
             this.buttonUp.Click += new System.EventHandler(this.buttonUp_Click);
             //
