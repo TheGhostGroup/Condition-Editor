@@ -2160,8 +2160,31 @@ namespace ConditionCreator
                     ConditionComment = "target is " + NegativeCondition;
                     break;
                 case "Stand state":
-                    // *** TO DO ***
-
+                    if (comboBoxConditionValue1.Text == "0")
+                        switch (comboBoxConditionValue2.Text)
+                        {
+                            case "0":
+                                effect = "a standing state.";
+                                break;
+                            case "1":
+                                effect = "a sitting state.";
+                                break;
+                        }
+                    else
+                    {
+                        switch (comboBoxConditionValue2.Text)
+                        {
+                            case "0":
+                                effect = "any standing state.";
+                                break;
+                            case "1":
+                                effect = "any sitting state.";
+                                break;
+                        }
+                    }
+                    NegativeCondition = "in ";
+                    if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not in ";
+                    ConditionComment = "target is " + NegativeCondition + effect;
                     break;
             }
             // Output comment to textbox
