@@ -45,10 +45,7 @@ namespace ConditionCreator
                         return DS;
                     }
                 }
-                catch (Exception e)
-                {
-                    //MessageBox.Show(ex.Message);
-                }
+                catch { }
             }
             DS.Tables.Add("query");
             return DS;

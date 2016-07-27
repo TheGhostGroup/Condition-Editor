@@ -368,7 +368,7 @@ namespace ConditionCreator
                         return DS;
                     }
                 }
-                catch (Exception e) {}
+                catch { }
             }
             DS.Tables.Add("query");
             return DS;
@@ -1595,10 +1595,7 @@ namespace ConditionCreator
                             }
                         }
                     }
-                    catch (FormatException e)
-                    {
-
-                    }
+                    catch { }
 
                     NegativeCondition = "";
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
@@ -1726,7 +1723,7 @@ namespace ConditionCreator
                                 }
                             }
                         }
-                        catch (FormatException e)
+                        catch
                         {
                             comboBoxConditionValue1.Text = "0";
                         }
@@ -1761,7 +1758,7 @@ namespace ConditionCreator
                                 }
                             }
                         }
-                        catch (FormatException e)
+                        catch
                         {
                             comboBoxConditionValue1.Text = "0";
                         }
@@ -2070,10 +2067,7 @@ namespace ConditionCreator
                             }
                         }
                     }
-                    catch (FormatException e)
-                    {
-
-                    }
+                    catch { }
 
                     NegativeCondition = "";
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
