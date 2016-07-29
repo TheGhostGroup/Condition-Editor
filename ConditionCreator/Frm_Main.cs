@@ -1528,7 +1528,7 @@ namespace ConditionCreator
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "does not have ";
                     ConditionComment = "player " + NegativeCondition + dbvalue + " equiped.";
                         break;
-                case "zone id":
+                case "Zone id":
                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Area' AND `Id`=" + comboBoxConditionValue1.Text + ";");
                     if (DS.Tables["query"].Rows.Count == 0)
                         dbvalue = "INVALID_ZONE";
