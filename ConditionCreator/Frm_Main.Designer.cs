@@ -859,6 +859,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Condition Creator";
+            this.Load += new System.EventHandler(this.FormCreator_Load);
             this.menuStripSourceCondition.ResumeLayout(false);
             this.menuStripSourceCondition.PerformLayout();
             this.groupBoxConditionType.ResumeLayout(false);

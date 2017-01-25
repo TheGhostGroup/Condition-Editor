@@ -2323,5 +2323,15 @@ namespace ConditionCreator
             }
             catch { }
         }
+
+        private void FormCreator_Load(object sender, EventArgs e)
+        {
+            // Check to see if cc.s3db exist. If not exist program.
+            if (!File.Exists("cc.s3db"))
+            {
+                MessageBox.Show("Please ensure the cc.s3db database file is in your application path.", "Missing Database File", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                Application.Exit();
+            }
+        }
     }
 }
