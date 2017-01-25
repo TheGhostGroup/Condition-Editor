@@ -2234,7 +2234,7 @@ namespace ConditionCreator
                 scriptname = row.Cells[13].Value.ToString().Replace("'", "''");
                 comment = row.Cells[14].Value.ToString().Replace("'", "''");
 
-                sqlInsertValues = "(" + row.Cells[0].Value + ", " + row.Cells[1].Value + ", " + row.Cells[2].Value + ", " + row.Cells[3].Value + ", " + row.Cells[4].Value + ", " + row.Cells[5].Value + ", " + row.Cells[6].Value + ", " + row.Cells[7].Value + ", " + row.Cells[8].Value + ", " + row.Cells[9].Value + ", " + row.Cells[10].Value + ", " + row.Cells[11].Value + ", " + row.Cells[12].Value + ", '" + row.Cells[13].Value + "', '" + row.Cells[14].Value + "');\r\n\r\n";
+                sqlInsertValues = "(" + row.Cells[0].Value + ", " + row.Cells[1].Value + ", " + row.Cells[2].Value + ", " + row.Cells[3].Value + ", " + row.Cells[4].Value + ", " + row.Cells[5].Value + ", " + row.Cells[6].Value + ", " + row.Cells[7].Value + ", " + row.Cells[8].Value + ", " + row.Cells[9].Value + ", " + row.Cells[10].Value + ", " + row.Cells[11].Value + ", " + row.Cells[12].Value + ", '" + row.Cells[13].Value + "', '" + comment + "');\r\n\r\n";
                 sqlString = sqlString + sqlComment + sqlDelete + sqlInsertString + sqlInsertValues;
             }
             
