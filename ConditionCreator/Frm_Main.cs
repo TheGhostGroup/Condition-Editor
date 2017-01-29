@@ -116,7 +116,7 @@ namespace ConditionCreator
             sourceIdTip[12] = "";
             conditionTargetTip[12] = "";
             // SPELL IMPLICIT TARGET
-            sourceGroupTip[13] = "Mask of effect which should hit target:\r\n1 = EFFECT_0\r\n2 = EFFECT_1\r\n4 = EFFECT_2";
+            sourceGroupTip[13] = "Mask of effect which should hit target:\r\n1 = EFFECT_0\r\n2 = EFFECT_1\r\n3 = EFFECT_0 & EFFECT_1\r\n4 = EFFECT_2\r\n5 = EFFECT_0 & EFFECT_2\r\n6 = EFFECT_1 & EFFECT_2\r\n7 = EFFECT_0 & EFFECT_1 & EFFECT_2";
             sourceEntryTip[13] = "Spell requiring Implicit target (Spell Id from Spell.dbc)";
             sourceIdTip[13] = "";
             conditionTargetTip[13] = "Target:\r\n0 - Potential target of the spell\r\n1 - Caster of the spell.";
@@ -1265,8 +1265,20 @@ namespace ConditionCreator
                         case "2":
                             effect = "(effect 1)";
                             break;
+                        case "3":
+                            effect = "(effects 0 & 1)";
+                            break;
                         case "4":
                             effect = "(effect 2)";
+                            break;
+                        case "5":
+                            effect = "(effects 0 & 2)";
+                            break;
+                        case "6":
+                            effect = "(effects 1 & 2)";
+                            break;
+                        case "7":
+                            effect = "(effect 0 & 1 & 2)";
                             break;
                     }
 
@@ -2236,8 +2248,7 @@ namespace ConditionCreator
 
                 sqlInsertValues = "(" + row.Cells[0].Value + ", " + row.Cells[1].Value + ", " + row.Cells[2].Value + ", " + row.Cells[3].Value + ", " + row.Cells[4].Value + ", " + row.Cells[5].Value + ", " + row.Cells[6].Value + ", " + row.Cells[7].Value + ", " + row.Cells[8].Value + ", " + row.Cells[9].Value + ", " + row.Cells[10].Value + ", " + row.Cells[11].Value + ", " + row.Cells[12].Value + ", '" + row.Cells[13].Value + "', '" + comment + "');\r\n\r\n";
                 sqlString = sqlString + sqlComment + sqlDelete + sqlInsertString + sqlInsertValues;
-            }
-            
+            }  
         }
 
         private void saveToFileToolStripMenuItem_Click(object sender, EventArgs e)
