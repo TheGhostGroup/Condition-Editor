@@ -191,7 +191,7 @@ namespace ConditionCreator
             ConditionValue3Tip[0] = "";
             // AURA
             ConditionValue1Tip[1] = "This is the Spell Id from Spell.dbc.";
-            ConditionValue2Tip[1] = "This is the mask of effect to be used by condition:\r\n1 = EFFECT_0\r\n2 = EFFECT_1\r\n4 = EFFECT_2";
+            ConditionValue2Tip[1] = "This is the mask of effect to be used by condition:\r\n1 = EFFECT_0\r\n2 = EFFECT_1\r\n3 = EFFECT_2";
             ConditionValue3Tip[1] = "";
             // ITEM
             ConditionValue1Tip[2] = "This is the item entry player must have for condition.";
@@ -833,7 +833,7 @@ namespace ConditionCreator
                     comboBoxConditionValue2.Items.Clear();
                     comboBoxConditionValue2.Items.Add(1);
                     comboBoxConditionValue2.Items.Add(2);
-                    comboBoxConditionValue2.Items.Add(4);
+                    comboBoxConditionValue2.Items.Add(3);
                     comboBoxConditionValue2.Text = "1";
                     break;
                 case "Item":
