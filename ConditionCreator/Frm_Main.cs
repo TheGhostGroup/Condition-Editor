@@ -1,14 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.IO;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Globalization;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
 
@@ -25,9 +18,9 @@ namespace ConditionCreator
         string[] sourceEntryTip     = new string[27];
         string[] sourceIdTip        = new string[27];
         string[] conditionTargetTip = new string[27];
-        string[] ConditionValue1Tip = new string[42];
-        string[] ConditionValue2Tip = new string[42];
-        string[] ConditionValue3Tip = new string[42];
+        string[] ConditionValue1Tip = new string[49];
+        string[] ConditionValue2Tip = new string[49];
+        string[] ConditionValue3Tip = new string[49];
 
         public FormCreator()
         {
@@ -246,7 +239,7 @@ namespace ConditionCreator
             ConditionValue2Tip[14] = "";
             ConditionValue3Tip[14] = "";
             // CLASS
-            ConditionValue1Tip[15] = "Class flags:\r\n1 - Warrior\r\n2 - Paladin\r\n4 - Hunter\r\n8 - Rogue\r\n16 - Priest\r\n32 - Death Knight\r\n64 - Shaman\r\n128 - Mage\r\n256 - Warlock\r\n512 - Monk\r\n1024 - Druid\r\nFlags can be combined.";
+            ConditionValue1Tip[15] = "Class flags:\r\n1 - Warrior\r\n2 - Paladin\r\n4 - Hunter\r\n8 - Rogue\r\n16 - Priest\r\n32 - Death Knight\r\n64 - Shaman\r\n128 - Mage\r\n256 - Warlock\r\n512 - Monk\r\n1024 - Druid\r\n2048 - Demon Hunter\r\nnFlags can be combined.";
             ConditionValue2Tip[15] = "";
             ConditionValue3Tip[15] = "";
             // RACE
@@ -345,10 +338,38 @@ namespace ConditionCreator
             ConditionValue1Tip[40] = "Location:\r\n0 - target needs to be on land.\r\n1 - target needs to be in water.";
             ConditionValue2Tip[40] = "";
             ConditionValue3Tip[40] = "";
-            // STAND STATE
-            ConditionValue1Tip[41] = "StateType:\r\n0 - Exact state used.\r\n1 - Any type of state used.";
-            ConditionValue2Tip[41] = "State:\r\n0 - Standing\r\n1 - Sitting";
+            // TERRAIN SWAP
+            ConditionValue1Tip[41] = "ID od terrainSwap object must be in to be true";
+            ConditionValue2Tip[41] = "";
             ConditionValue3Tip[41] = "";
+            // STAND STATE
+            ConditionValue1Tip[42] = "StateType:\r\n0 - Exact state used.\r\n1 - Any type of state used.";
+            ConditionValue2Tip[42] = "State:\r\n0 - Standing\r\n1 - Sitting";
+            ConditionValue3Tip[42] = "";
+            // DAILY QUEST DONE
+            ConditionValue1Tip[43] = "Condition will be true if player has done daily quest.";
+            ConditionValue2Tip[43] = "";
+            ConditionValue3Tip[43] = "";
+            // CHARMED
+            ConditionValue1Tip[44] = "";
+            ConditionValue2Tip[44] = "";
+            ConditionValue3Tip[44] = "";
+            // PET TYPE
+            ConditionValue1Tip[45] = "Type of pet:\r\n0 - Summon Pet\r\n1 - Hunter Pet";
+            ConditionValue2Tip[45] = "";
+            ConditionValue3Tip[45] = "";
+            // TAXI
+            ConditionValue1Tip[46] = "";
+            ConditionValue2Tip[46] = "";
+            ConditionValue3Tip[46] = "";
+            // QUESTSTATE
+            ConditionValue1Tip[47] = "QuestId of which needs to meet soecified state";
+            ConditionValue2Tip[47] = "Quest state:\r\n0 - None \r\n1 - Complete\r\n3 - Incomplete\r\n5 - Failed\r\n6 - Rewarded";
+            ConditionValue3Tip[47] = "";
+            // QUEST OBJECTIVE COMPLETE
+            ConditionValue1Tip[48] = "Player must have this quest objective completed for condition to be true.";
+            ConditionValue2Tip[48] = "";
+            ConditionValue3Tip[48] = "";
         }
 
         public DataSet dbread(String qry)
@@ -1153,6 +1174,12 @@ namespace ConditionCreator
                     labelConditionValue2.Text = "";
                     labelConditionValue3.Text = "";
                     break;
+                case "Terrain swap":
+                    labelConditionValue1.Text = "Terrain swap";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
+                    comboBoxConditionValue1.Enabled = true;
+                    break;
                 case "Stand state":
                     labelConditionValue1.Text = "StateType";
                     labelConditionValue2.Text = "State";
@@ -1167,6 +1194,36 @@ namespace ConditionCreator
                     comboBoxConditionValue2.Items.Add(0);
                     comboBoxConditionValue2.Items.Add(1);
                     comboBoxConditionValue2.SelectedItem = 0;
+                    break;
+                case "Daily quest done":
+                    labelConditionValue1.Text = "Quest Id";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
+                    comboBoxConditionValue1.Enabled = true;
+                    break;
+                case "Charmed":
+                    break;
+                case "Pet type":
+                    labelConditionValue1.Text = "Pet type";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
+                    comboBoxConditionValue1.Enabled = true;
+                    break;
+                case "Taxi":
+                    break;
+                case "Queststate":
+                    labelConditionValue1.Text = "Quest Id";
+                    labelConditionValue2.Text = "Queststate";
+                    labelConditionValue3.Text = "";
+                    comboBoxConditionValue1.Enabled = true;
+                    comboBoxConditionValue2.Enabled = true;
+                    checkBoxNegativeCondition.Enabled = false;
+                    break;
+                case "Quest objective complete":
+                    labelConditionValue1.Text = "ObjectiveID";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
+                    comboBoxConditionValue1.Enabled = true;
                     break;
                 default:
                     labelConditionValue1.Text = "ConditionValue1";
@@ -2109,7 +2166,7 @@ namespace ConditionCreator
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
                     ConditionComment = "distance between targets is " + NegativeCondition + target + comboBoxConditionValue2.Text + " yards.";
                     break;
-                case "ALive":
+                case "Alive":
                     NegativeCondition = "alive.";
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "dead.";
                     ConditionComment = "target is " + NegativeCondition;
@@ -2178,6 +2235,12 @@ namespace ConditionCreator
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "in water.";
                     ConditionComment = "target is " + NegativeCondition;
                     break;
+                case "Terrain swap":
+                    if (comboBoxConditionValue1.Text == "") break;
+                    NegativeCondition = " ";
+                    if (checkBoxNegativeCondition.Checked == true) NegativeCondition = " not ";
+                    ConditionComment = "object is" + NegativeCondition + "on terrain swap";
+                    break;
                 case "Stand state":
                     if (comboBoxConditionValue1.Text == "0")
                         switch (comboBoxConditionValue2.Text)
@@ -2204,6 +2267,76 @@ namespace ConditionCreator
                     NegativeCondition = "in ";
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not in ";
                     ConditionComment = "target is " + NegativeCondition + effect;
+                    break;
+                case "Daily quest done":
+                    if (comboBoxConditionValue1.Text == "") break;
+                    DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Quest' AND `Id`=" + comboBoxConditionValue1.Text + ";");
+                    if (DS.Tables["query"].Rows.Count == 0)
+                        dbvalue = "INVALID_QUEST";
+                    else
+                        dbvalue = DS.Tables["query"].Rows[0][0].ToString();
+
+                    NegativeCondition = " ";
+                    if (checkBoxNegativeCondition.Checked == true) NegativeCondition = " not ";
+                    ConditionComment = "Daily quest " + dbvalue + " has" + NegativeCondition + "been done.";
+                    break;
+                case "Charmed":
+                    NegativeCondition = "charmed";
+                    if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not charmed";
+                    ConditionComment = "target is " + NegativeCondition;
+                    break;
+                case "Pet type":
+                    string type = "";
+                    if (comboBoxConditionValue1.Text == "") break;
+                    else if (comboBoxConditionValue1.Text == "0")
+                        type = "SUMMON_PET";
+                    else if (comboBoxConditionValue1.Text == "1")
+                        type = "HUNTER_PET";
+                    else
+                        type = "INVALID_TYPE";
+                    NegativeCondition = " ";
+                    if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
+                    ConditionComment = "Pet type is " + NegativeCondition + type;
+                    break;
+                case "Taxi":
+                    NegativeCondition = "on taxi.";
+                    if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not on taxi.";
+                    ConditionComment = "target is " + NegativeCondition;
+                    break;
+                case "Queststate":
+                    if (comboBoxConditionValue1.Text == "") break;
+                    DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Quest' AND `Id`=" + comboBoxConditionValue1.Text + ";");
+                    if (DS.Tables["query"].Rows.Count == 0)
+                        dbvalue = "INVALID_QUEST";
+                    else
+                        dbvalue = DS.Tables["query"].Rows[0][0].ToString();
+                    string state = "";
+                    if (comboBoxConditionValue2.Text == "0")
+                        state = "NONE";
+                    else if (comboBoxConditionValue2.Text == "1")
+                        state = "COMPLETE";
+                    else if(comboBoxConditionValue2.Text == "3")
+                        state = "INCOMPLETE";
+                    else if(comboBoxConditionValue2.Text == "5")
+                        state = "FAILED";
+                    else if (comboBoxConditionValue2.Text == "6")
+                        state = "REWARED";
+                    else
+                        state = "INVALID_STATE";
+
+                    if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "";
+                    ConditionComment = "Daily quest " + dbvalue + " queststate must be " + state;
+                    break;
+                case "Quest objective complete":
+                    if (comboBoxConditionValue1.Text == "") break;
+                    /* DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Quest' AND `Id`=" + comboBoxConditionValue1.Text + ";");
+                    if (DS.Tables["query"].Rows.Count == 0)
+                        dbvalue = "INVALID_QUEST";
+                    else
+                        dbvalue = DS.Tables["query"].Rows[0][0].ToString();*/
+                    NegativeCondition = "";
+                    if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
+                    ConditionComment = "quest objective " + dbvalue + " has " + NegativeCondition + "been completed.";
                     break;
             }
             // Output comment to textbox

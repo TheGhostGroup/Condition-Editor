@@ -161,6 +161,16 @@ namespace ConditionCreator
             textBoxClass.Text = classMask.ToString();
         }
 
+        private void checkBox23_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox23.Checked)
+                classMask = classMask + 2048;
+            else
+                classMask = classMask - 2048;
+
+            textBoxClass.Text = classMask.ToString();
+        }
+
         private void buttonClassHelper_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Clipboard.SetText(textBoxClass.Text);
