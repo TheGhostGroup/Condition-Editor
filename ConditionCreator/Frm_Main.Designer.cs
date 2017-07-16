@@ -216,7 +216,14 @@
             "Health point percentage",
             "Realm achievement",
             "In water",
-            "Stand state"});
+            "Terrain swap",
+            "Stand state",
+            "Daily quest done",
+            "Charmed",
+            "Pet type",
+            "Taxi",
+            "Queststate",
+            "Quest objective complete"});
             this.toolStripComboBoxCondition.Name = "toolStripComboBoxCondition";
             this.toolStripComboBoxCondition.Size = new System.Drawing.Size(200, 23);
             this.toolStripComboBoxCondition.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBoxCondition_SelectedIndexChanged);

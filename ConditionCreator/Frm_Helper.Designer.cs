@@ -66,6 +66,7 @@
             this.buttonClassHelper = new System.Windows.Forms.Button();
             this.textBoxClass = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.checkBox23 = new System.Windows.Forms.CheckBox();
             this.checkBox11 = new System.Windows.Forms.CheckBox();
             this.checkBox10 = new System.Windows.Forms.CheckBox();
             this.checkBox9 = new System.Windows.Forms.CheckBox();
@@ -487,6 +488,7 @@
             this.groupBoxClass.Controls.Add(this.buttonClassHelper);
             this.groupBoxClass.Controls.Add(this.textBoxClass);
             this.groupBoxClass.Controls.Add(this.label2);
+            this.groupBoxClass.Controls.Add(this.checkBox23);
             this.groupBoxClass.Controls.Add(this.checkBox11);
             this.groupBoxClass.Controls.Add(this.checkBox10);
             this.groupBoxClass.Controls.Add(this.checkBox9);
@@ -533,6 +535,17 @@
             this.label2.TabIndex = 26;
             this.label2.Text = "ClassMask:";
             // 
+            // checkBox23
+            //
+            this.checkBox23.AutoSize = true;
+            this.checkBox23.Location = new System.Drawing.Point(212, 98);
+            this.checkBox23.Name = "checkBox23";
+            this.checkBox23.Size = new System.Drawing.Size(51, 17);
+            this.checkBox23.TabIndex = 25;
+            this.checkBox23.Text = "Demon Hunter";
+            this.checkBox23.UseVisualStyleBackColor = true;
+            this.checkBox23.CheckedChanged += new System.EventHandler(this.checkBox23_CheckedChanged);
+            //
             // checkBox11
             // 
             this.checkBox11.AutoSize = true;
@@ -859,6 +872,7 @@
         private System.Windows.Forms.Button buttonClassHelper;
         private System.Windows.Forms.TextBox textBoxClass;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox checkBox23;
         private System.Windows.Forms.CheckBox checkBox11;
         private System.Windows.Forms.CheckBox checkBox10;
         private System.Windows.Forms.CheckBox checkBox9;
