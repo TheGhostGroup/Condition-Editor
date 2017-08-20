@@ -138,13 +138,13 @@ namespace ConditionCreator
             sourceEntryTip[18] = "This is the click Spell  (Spell Id from Spell.dbc)";
             sourceIdTip[18] = "";
             conditionTargetTip[18] = "Target:\r\n0 - Player\r\n1 - Creature.";
-            // QUEST ACCEPT
-            sourceGroupTip[19] = "This is the quest id which will trigger condition on accept.";
+            // QUEST AVAILABLE
+            sourceGroupTip[19] = "Quest id which will be available on condition true.";
             sourceEntryTip[19] = "";
             sourceIdTip[19] = "";
             conditionTargetTip[19] = "";
-            // QUEST SHOW MARK
-            sourceGroupTip[20] = "The quest giver will show question mark for this quest if condition is true.";
+            // Condition 20 not used
+            sourceGroupTip[20] = "";
             sourceEntryTip[20] = "";
             sourceIdTip[20] = "";
             conditionTargetTip[20] = "";
@@ -467,8 +467,9 @@ namespace ConditionCreator
                 // copy selected row to input fields and delete row from table
                 int rowIndex = dataGridViewConditions.SelectedRows[0].Index;
                 DataGridViewRow row = dataGridViewConditions.Rows[rowIndex];
-
-                toolStripComboBoxSource.SelectedIndex = Convert.ToInt32(row.Cells[0].Value);
+                int source = Convert.ToInt32(row.Cells[0].Value);
+                if (source > 19) --source; // 20 is unused so selectedindex will be off after item 19.
+                toolStripComboBoxSource.SelectedIndex = source;
                 textBoxSourceGroup.Text = row.Cells[1].Value.ToString();
                 textBoxSourceEntry.Text = row.Cells[2].Value.ToString();
                 textBoxSourceId.Text = row.Cells[3].Value.ToString();
@@ -522,6 +523,7 @@ namespace ConditionCreator
             textBoxErrorType.Enabled = false;
             textBoxErrorTextId.Enabled = false;
             sourceValue = toolStripComboBoxSource.SelectedIndex;
+            if (sourceValue > 19) ++sourceValue; // 20 is unused so selectedindex will be off after item 19.
         }
 
         void reset_condition()
@@ -752,18 +754,11 @@ namespace ConditionCreator
                     comboBoxConditionTarget.Enabled = true;
                     comboBoxConditionTarget.Visible = true;
                     break;
-                case "Quest accept":
+                case "Quest available":
                     labelSourceGroup.Text = "";
                     labelSourceEntry.Text = "Quest Id";
-                    labelSourceId.Text    = "";
-                    labelTarget.Text      = "";
-                    textBoxSourceEntry.Enabled = true;
-                    break;
-                case "Quest show mark":
-                    labelSourceGroup.Text = "";
-                    labelSourceEntry.Text = "Quest Id";
-                    labelSourceId.Text    = "";
-                    labelTarget.Text      = "";
+                    labelSourceId.Text = "";
+                    labelTarget.Text = "";
                     textBoxSourceEntry.Enabled = true;
                     break;
                 case "Vehicle spell":
@@ -1423,21 +1418,13 @@ namespace ConditionCreator
                     }
                     SourceComment = "Spellclick unit " + dbvalue + " will cast spell " + dbvalue1  + " on " + target + " if ";
                     break;
-                case "Quest accept":
+                case "Quest available":
                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Quest' AND `Id`=" + textBoxSourceEntry.Text + ";");
                     if (DS.Tables["query"].Rows.Count == 0)
                         dbvalue = "INVALID_QUEST";
                     else
                         dbvalue = DS.Tables["query"].Rows[0][0].ToString();
-                    SourceComment = "Show quest " + dbvalue + " if ";
-                    break;
-                case "Quest show mark":
-                    DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Quest' AND `Id`=" + textBoxSourceEntry.Text + ";");
-                    if (DS.Tables["query"].Rows.Count == 0)
-                        dbvalue = "INVALID_QUEST";
-                    else
-                        dbvalue = DS.Tables["query"].Rows[0][0].ToString();
-                    SourceComment = "Show quest mark on questgiver for quest " + dbvalue + " if ";
+                    SourceComment = "Quest " + dbvalue + " available if ";
                     break;
                 case "Vehicle spell":
                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Unit' AND `Id`=" + textBoxSourceGroup.Text + ";");
@@ -1806,15 +1793,14 @@ namespace ConditionCreator
                         {
                             intvalue = Int32.Parse(comboBoxConditionValue1.Text);
                             BitArray b = new BitArray(new int[] { intvalue });
-
+                            dbvalue = "";
+                            dbvalue1 = "";
                             for (int i = 0; i < 26; i++)
                             {
                                 if (b[i])
                                 {
                                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Race' AND `Id`=" + i + ";");
-                                    if (DS.Tables["query"].Rows.Count == 0)
-                                        dbvalue1 = "";
-                                    else
+                                    if (DS.Tables["query"].Rows.Count != 0)
                                         dbvalue1 = DS.Tables["query"].Rows[0][0].ToString();
 
                                     if (dbvalue1 != "")
@@ -1823,6 +1809,7 @@ namespace ConditionCreator
                                             dbvalue = dbvalue + " or ";
 
                                         dbvalue = dbvalue + dbvalue1;
+                                        dbvalue1 = "";
                                     }
                                 }
                             }
@@ -2038,6 +2025,7 @@ namespace ConditionCreator
                     ConditionComment = "target is " + NegativeCondition + dbvalue + " " + dbvalue1 + dbvalue2 + ".";
                     break;
                 case "Type mask":
+                    target = "";
                     switch (comboBoxConditionValue1.Text)
                     {
                         case "8":
@@ -2192,7 +2180,7 @@ namespace ConditionCreator
                     }
                     NegativeCondition = "";
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
-                    ConditionComment = "target health value must " + NegativeCondition + "be " + target + " " + comboBoxConditionValue1.Text + ".";
+                    ConditionComment = "target health value must " + NegativeCondition + "be " + target + comboBoxConditionValue1.Text + ".";
                     break;
                 case "Health point percentage":
                     switch (comboBoxConditionValue2.Text)
@@ -2215,7 +2203,7 @@ namespace ConditionCreator
                     }
                     NegativeCondition = "";
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
-                    ConditionComment = "target health percentage must " + NegativeCondition + "be " + target + " " + comboBoxConditionValue1.Text + "% of max Health.";
+                    ConditionComment = "target health percentage must " + NegativeCondition + "be " + target + comboBoxConditionValue1.Text + "% of max Health.";
                     break;
                 case "Realm achievement":
                     // *** TO DO ***
