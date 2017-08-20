@@ -2402,6 +2402,10 @@ namespace ConditionCreator
 
         void CreateSQL()
         {
+            // *** TODO ***
+            // Redesign for multiple insert.
+            // *** TODO ***
+
             // Check if grid rows exist
             if (dataGridViewConditions.Rows.Count == 0)
                 return;
@@ -2425,18 +2429,30 @@ namespace ConditionCreator
             // If there are rows then convert them to sql
             for (int i = 0; i < dataGridViewConditions.RowCount; i++)
             {
+                // Get row
                 row = dataGridViewConditions.Rows[i];
+
+                // Get Source Id from row
                 indexsource = Int32.Parse(row.Cells[0].Value.ToString());
+                if (indexsource > 19) indexsource = indexsource - 1;
                 source = toolStripComboBoxSource.Items[indexsource].ToString();
+
+                // Get Condition Id from row
                 indexcondition = Int32.Parse(row.Cells[5].Value.ToString());
-                if (indexcondition > 24) indexcondition = indexcondition - 1;
                 condition = toolStripComboBoxCondition.Items[indexcondition].ToString();
+
+                // Create Comment Line from row
                 sqlComment = "-- Condition for source " + source + " condition type " + condition + "\r\n";
+
+                // Create Delete Line from row
                 sqlDelete = "DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=" + row.Cells[0].Value + " AND `SourceGroup`=" + row.Cells[1].Value + " AND `SourceEntry`=" + row.Cells[2].Value + " AND `SourceId`=" + row.Cells[3].Value + ";" + "\r\n";
+
+                // Create Insert Values Line from row
                 scriptname = row.Cells[13].Value.ToString().Replace("'", "''");
                 comment = row.Cells[14].Value.ToString().Replace("'", "''");
-
                 sqlInsertValues = "(" + row.Cells[0].Value + ", " + row.Cells[1].Value + ", " + row.Cells[2].Value + ", " + row.Cells[3].Value + ", " + row.Cells[4].Value + ", " + row.Cells[5].Value + ", " + row.Cells[6].Value + ", " + row.Cells[7].Value + ", " + row.Cells[8].Value + ", " + row.Cells[9].Value + ", " + row.Cells[10].Value + ", " + row.Cells[11].Value + ", " + row.Cells[12].Value + ", '" + row.Cells[13].Value + "', '" + comment + "');\r\n\r\n";
+
+                // Create full SQL Insert String for row
                 sqlString = sqlString + sqlComment + sqlDelete + sqlInsertString + sqlInsertValues;
             }  
         }
