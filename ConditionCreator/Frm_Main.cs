@@ -593,7 +593,7 @@ namespace ConditionCreator
         {
             char ch = e.KeyChar;
 
-            if (!Char.IsDigit(ch) && ch != 8)
+            if (!Char.IsDigit(ch) && ch != 8 && ch != 45 && ch != 3 && ch != 22)
                 e.Handled = true;
         }
 
@@ -601,7 +601,7 @@ namespace ConditionCreator
         {
             char ch = e.KeyChar;
 
-            if (!Char.IsDigit(ch) && ch != 8 && ch != 45)
+            if (!Char.IsDigit(ch) && ch != 8 && ch != 45 && ch != 3 && ch != 22)
                 e.Handled = true;
         }
 
@@ -609,7 +609,7 @@ namespace ConditionCreator
         {
             char ch = e.KeyChar;
 
-            if (!Char.IsDigit(ch) && ch != 8)
+            if (!Char.IsDigit(ch) && ch != 8 && ch != 45 && ch != 3 && ch != 22)
                 e.Handled = true;
         }
 
@@ -617,7 +617,7 @@ namespace ConditionCreator
         {
             char ch = e.KeyChar;
 
-            if (!Char.IsDigit(ch) && ch != 8)
+            if (!Char.IsDigit(ch) && ch != 8 && ch != 45 && ch != 3 && ch != 22)
                 e.Handled = true;
         }
 
@@ -625,7 +625,7 @@ namespace ConditionCreator
         {
             char ch = e.KeyChar;
 
-            if (!Char.IsDigit(ch) && ch != 8)
+            if (!Char.IsDigit(ch) && ch != 8 && ch != 45 && ch != 3 && ch != 22)
                 e.Handled = true;
         }
 
@@ -633,7 +633,7 @@ namespace ConditionCreator
         {
             char ch = e.KeyChar;
 
-            if (!Char.IsDigit(ch) && ch != 8)
+            if (!Char.IsDigit(ch) && ch != 8 && ch != 45 && ch != 3 && ch != 22)
                 e.Handled = true;
         }
 
@@ -641,7 +641,7 @@ namespace ConditionCreator
         {
             char ch = e.KeyChar;
 
-            if (!Char.IsDigit(ch) && ch != 8)
+            if (!Char.IsDigit(ch) && ch != 8 && ch != 45 && ch != 3 && ch != 22)
                 e.Handled = true;
         }
 
@@ -649,7 +649,7 @@ namespace ConditionCreator
         {
             char ch = e.KeyChar;
 
-            if (!Char.IsDigit(ch) && ch != 8)
+            if (!Char.IsDigit(ch) && ch != 8 && ch != 45 && ch != 3 && ch != 22)
                 e.Handled = true;
         }
 
@@ -657,7 +657,7 @@ namespace ConditionCreator
         {
             char ch = e.KeyChar;
 
-            if (!Char.IsDigit(ch) && ch != 8)
+            if (!Char.IsDigit(ch) && ch != 8 && ch != 45 && ch != 3 && ch != 22)
                 e.Handled = true;
         }
 
@@ -707,7 +707,7 @@ namespace ConditionCreator
                     break;
                 case "Gossip menu":
                     labelSourceGroup.Text = "Gossip Menu Entry";
-                    labelSourceEntry.Text = "Gossip Menu Text Id";
+                    labelSourceEntry.Text = "Gossip Text Id";
                     labelSourceId.Text    = "";
                     labelTarget.Text      = "Condition Target";
                     textBoxSourceGroup.Enabled = true;
@@ -717,7 +717,7 @@ namespace ConditionCreator
                     break;
                 case "Gossip menu option":
                     labelSourceGroup.Text = "Gossip Menu Entry";
-                    labelSourceEntry.Text = "Gossip Menu Option Id";
+                    labelSourceEntry.Text = "Gossip Option Id";
                     labelSourceId.Text    = "";
                     labelTarget.Text      = "Condition Target";
                     textBoxSourceGroup.Enabled = true;
@@ -2144,7 +2144,6 @@ namespace ConditionCreator
                     ConditionComment = "target is " + NegativeCondition + target + "condition target.";
                     break;
                 case "Reaction to":
-                    //TODO more info on targets
                     dbvalue1 = "";
 
                     try
@@ -2425,7 +2424,6 @@ namespace ConditionCreator
             int indexcondition = 0;
 
             DataGridViewRow row = null;
-
             // If there are rows then convert them to sql
             for (int i = 0; i < dataGridViewConditions.RowCount; i++)
             {
