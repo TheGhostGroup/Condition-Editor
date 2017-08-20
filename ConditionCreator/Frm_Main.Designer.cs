@@ -199,6 +199,7 @@
             "Unit state",
             "Map id",
             "Area id",
+            "Creature type",
             "Spell",
             "Phase mask",
             "Level",

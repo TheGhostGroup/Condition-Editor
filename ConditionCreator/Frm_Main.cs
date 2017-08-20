@@ -274,6 +274,10 @@ namespace ConditionCreator
             ConditionValue1Tip[23] = "This is the Area Id from area_table.dbc";
             ConditionValue2Tip[23] = "";
             ConditionValue3Tip[23] = "";
+            // CREATURE TYPE
+            ConditionValue1Tip[24] = "This is the Creature type from creature_template.type\r\n0 = None\r\n1 = Beast\r\n2 = Dragonkin\r\n3 = Demon\r\n4 = Elemental\r\n5 = Giant\r\n6 = Undead\r\n7 = Humanoid\r\n8 = Critter\r\n9 = Mechanical\r\n10 = Not specified\r\n11 = Totem\r\n12 = Non-Combat Pet\r\n13 = Gas Cloud\r\n14 = Wild Pet\r\n15 = Aberration";
+            ConditionValue2Tip[24] = "";
+            ConditionValue3Tip[24] = "";
             // SPELL
             ConditionValue1Tip[25] = "This is the Spell Id from Spell.dbc.";
             ConditionValue2Tip[25] = "";
@@ -375,7 +379,7 @@ namespace ConditionCreator
         public DataSet dbread(String qry)
         {
             DataSet DS = new DataSet();
-            connectionString = @"Data Source=cc.s3db;Version=3;";
+            connectionString = @"Data Source=cc.db3;Version=3;";
             using (SQLiteConnection con = new SQLiteConnection(connectionString))
             {
                 try
@@ -474,9 +478,7 @@ namespace ConditionCreator
                 textBoxSourceEntry.Text = row.Cells[2].Value.ToString();
                 textBoxSourceId.Text = row.Cells[3].Value.ToString();
                 textBoxElseGroup.Text = row.Cells[4].Value.ToString();
-                int condition = Convert.ToInt32(row.Cells[5].Value);
-                if (condition > 23) --condition; // 24 is unused so selectedindex will be off after item 23.
-                toolStripComboBoxCondition.SelectedIndex = condition;
+                toolStripComboBoxCondition.SelectedIndex = Convert.ToInt32(row.Cells[5].Value);
                 comboBoxConditionTarget.Text = row.Cells[6].Value.ToString();
                 comboBoxConditionValue1.Text = row.Cells[7].Value.ToString();
                 comboBoxConditionValue2.Text = row.Cells[8].Value.ToString();
@@ -545,7 +547,6 @@ namespace ConditionCreator
             comboBoxConditionValue3.DropDownStyle = ComboBoxStyle.DropDown;
             comboBoxConditionValue3.Text = "0";
             conditionValue = toolStripComboBoxCondition.SelectedIndex;
-            if (conditionValue > 23) ++conditionValue; // 24 is unused so selectedindex will be off after item 23.
         }
 
         private void textBoxSourceGroup_TextChanged(object sender, EventArgs e)
@@ -1012,6 +1013,12 @@ namespace ConditionCreator
                     break;
                 case "Area id":
                     labelConditionValue1.Text = "Area Id";
+                    labelConditionValue2.Text = "";
+                    labelConditionValue3.Text = "";
+                    comboBoxConditionValue1.Enabled = true;
+                    break;
+                case "Creature type":
+                    labelConditionValue1.Text = "Creature Type";
                     labelConditionValue2.Text = "";
                     labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
@@ -1889,6 +1896,69 @@ namespace ConditionCreator
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = " not";
                     ConditionComment = "target area is" + NegativeCondition + " " + dbvalue + ".";
                     break;
+                case "Creature type":
+                    DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'CreatureType' AND `Id`=" + comboBoxConditionValue1.Text + ";");
+
+                    if (DS.Tables["query"].Rows.Count == 0)
+                        dbvalue = "INVALID_CREATURE_TYPE";
+                    else
+                        dbvalue = DS.Tables["query"].Rows[0][0].ToString();
+
+                    switch (dbvalue)
+                    {
+                        case "0":
+                            dbvalue = "None";
+                            break;
+                        case "1":
+                            dbvalue = "Beast";
+                            break;
+                        case "2":
+                            dbvalue = "Dragonkin";
+                            break;
+                        case "3":
+                            dbvalue = "Demon";
+                            break;
+                        case "4":
+                            dbvalue = "Elemental";
+                            break;
+                        case "5":
+                            dbvalue = "Giant";
+                            break;
+                        case "6":
+                            dbvalue = "Undead";
+                            break;
+                        case "7":
+                            dbvalue = "Humanoid";
+                            break;
+                        case "8":
+                            dbvalue = "Critter";
+                            break;
+                        case "9":
+                            dbvalue = "Mechanical";
+                            break;
+                        case "10":
+                            dbvalue = "Not specified";
+                            break;
+                        case "11":
+                            dbvalue = "Totem";
+                            break;
+                        case "12":
+                            dbvalue = "Non-Combat Pet";
+                            break;
+                        case "13":
+                            dbvalue = "Gas Cloud";
+                            break;
+                        case "14":
+                            dbvalue = "Wild Pet";
+                            break;
+                        case "15":
+                            dbvalue = "Aberration";
+                            break;
+                    }
+                    NegativeCondition = "";
+                    if (checkBoxNegativeCondition.Checked == true) NegativeCondition = " not";
+                    ConditionComment = "creature type is" + NegativeCondition + " " + dbvalue + ".";
+                    break;
                 case "Spell":
                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Spell' AND `Id`=" + comboBoxConditionValue1.Text + ";");
                     if (DS.Tables["query"].Rows.Count == 0)
@@ -2458,8 +2528,8 @@ namespace ConditionCreator
 
         private void FormCreator_Load(object sender, EventArgs e)
         {
-            // Check to see if cc.s3db exist. If not exist program.
-            if (!File.Exists("cc.s3db"))
+            // Check to see if cc.db3 exist. If not exist program.
+            if (!File.Exists("cc.db3"))
             {
                 MessageBox.Show("Please ensure the cc.s3db database file is in your application path.", "Missing Database File", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 Application.Exit();
