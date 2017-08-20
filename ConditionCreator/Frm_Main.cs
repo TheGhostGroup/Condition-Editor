@@ -1079,7 +1079,7 @@ namespace ConditionCreator
                     comboBoxConditionValue1.Items.Add(4);
                     comboBoxConditionValue1.Items.Add(5);
                     comboBoxConditionValue1.Items.Add(7);
-                    comboBoxConditionValue1.SelectedItem = 3;
+                    comboBoxConditionValue1.Text = "3";
                     comboBoxConditionValue2.Enabled = true;
                     comboBoxConditionValue3.Enabled = true;
                     break;
@@ -1093,7 +1093,7 @@ namespace ConditionCreator
                     comboBoxConditionValue1.Items.Add(16);
                     comboBoxConditionValue1.Items.Add(32);
                     comboBoxConditionValue1.Items.Add(128);
-                    comboBoxConditionValue1.SelectedItem = 3;
+                    comboBoxConditionValue1.Text="8";
                     break;
                 case "Relation to":
                     labelConditionValue1.Text = "Target";
@@ -1116,6 +1116,7 @@ namespace ConditionCreator
                     labelConditionValue3.Text = "";
                     comboBoxConditionValue1.Enabled = true;
                     comboBoxConditionValue2.Enabled = true;
+                    comboBoxConditionValue2.Text = "1";
                     break;
                 case "Distance to":
                     labelConditionValue1.Text = "Target";
@@ -2201,7 +2202,6 @@ namespace ConditionCreator
                     ConditionComment = "target is " + NegativeCondition + dbvalue1 + " with condition target.";
                     break;
                 case "Distance to":
-                    //TODO more info on targets
                     switch (comboBoxConditionValue3.Text)
                     {
                         case "0":
@@ -2222,7 +2222,7 @@ namespace ConditionCreator
                     }
                     NegativeCondition = "";
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
-                    ConditionComment = "distance between targets is " + NegativeCondition + target + comboBoxConditionValue2.Text + " yards.";
+                    ConditionComment = "distance to target is " + NegativeCondition + target + comboBoxConditionValue2.Text + " yards.";
                     break;
                 case "Alive":
                     NegativeCondition = "alive.";
@@ -2276,7 +2276,6 @@ namespace ConditionCreator
                     ConditionComment = "target health percentage must " + NegativeCondition + "be " + target + comboBoxConditionValue1.Text + "% of max Health.";
                     break;
                 case "Realm achievement":
-                    // *** TO DO ***
                     if (comboBoxConditionValue1.Text == "") break;
                     DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Achievement' AND `Id`=" + comboBoxConditionValue1.Text + ";");
                     if (DS.Tables["query"].Rows.Count == 0)
@@ -2387,11 +2386,11 @@ namespace ConditionCreator
                     break;
                 case "Quest objective complete":
                     if (comboBoxConditionValue1.Text == "") break;
-                    /* DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Quest' AND `Id`=" + comboBoxConditionValue1.Text + ";");
+                    DS = dbread("Select `Name` FROM `objectnames` WHERE `ObjectType`= 'Quest' AND `Id`=" + comboBoxConditionValue1.Text + ";");
                     if (DS.Tables["query"].Rows.Count == 0)
                         dbvalue = "INVALID_QUEST";
                     else
-                        dbvalue = DS.Tables["query"].Rows[0][0].ToString();*/
+                        dbvalue = DS.Tables["query"].Rows[0][0].ToString();
                     NegativeCondition = "";
                     if (checkBoxNegativeCondition.Checked == true) NegativeCondition = "not ";
                     ConditionComment = "quest objective " + dbvalue + " has " + NegativeCondition + "been completed.";
