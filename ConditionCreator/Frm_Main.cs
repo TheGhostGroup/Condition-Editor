@@ -552,31 +552,55 @@ namespace ConditionCreator
         private void textBoxSourceGroup_TextChanged(object sender, EventArgs e)
         {
             updateComment();
+
+            int j = 0;
+            if (!Int32.TryParse(textBoxSourceGroup.Text, out j))
+                textBoxSourceGroup.Text = "0";
         }
 
         private void textBoxSourceEntry_TextChanged(object sender, EventArgs e)
         {
             updateComment();
+
+            int j = 0;
+            if (!Int32.TryParse(textBoxSourceEntry.Text, out j))
+                textBoxSourceEntry.Text = "0";
         }
 
         private void textBoxSourceId_TextChanged(object sender, EventArgs e)
         {
             updateComment();
+
+            int j = 0;
+            if (!Int32.TryParse(textBoxSourceId.Text, out j))
+                textBoxSourceId.Text = "0";
         }
 
         private void comboBoxConditionValue1_TextChanged(object sender, EventArgs e)
         {
             updateComment();
+
+            int j = 0;
+            if (!Int32.TryParse(comboBoxConditionValue1.Text, out j))
+                comboBoxConditionValue1.Text = "0";
         }
 
         private void comboBoxConditionValue2_TextChanged(object sender, EventArgs e)
         {
             updateComment();
+
+            int j = 0;
+            if (!Int32.TryParse(comboBoxConditionValue2.Text, out j))
+                comboBoxConditionValue2.Text = "0";
         }
 
         private void comboBoxConditionValue3_TextChanged(object sender, EventArgs e)
         {
             updateComment();
+
+            int j = 0;
+            if (!Int32.TryParse(comboBoxConditionValue3.Text, out j))
+                comboBoxConditionValue3.Text = "0";
         }
 
         private void checkBoxNegativeCondition_CheckedChanged(object sender, EventArgs e)
